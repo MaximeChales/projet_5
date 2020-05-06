@@ -36,7 +36,7 @@
                             <h2>Votre Photo</h2>
                             <br>
                             <label for="photo">
-                                <input type="file" id="photo" name="photo" accept="image/png, image/jpeg">
+                                <input type="file" id="photo" name="photo" accept="image/png, image/jpeg" value="{{$user_info['photo_profil']}}" >
                             </label>
                         </div>
                         <h2>Vos Informations</h2>
@@ -50,7 +50,10 @@
                             <label for="prenom">
                                 <input type="text" placeholder="votre prénom" name="prenom" value="{{$user_info['prenom']}}">
                             </label>
-
+                            <br>
+                            <label for="date_de_naissance">
+                                <input type="date" placeholder="votre date de naissance" name="date_de_naissance" value="{{$user_info['date_de_naissance']}}">
+                            </label>
                             <br>
                             <label for="job">
                                 <input type="text" placeholder="votre emploi" name="job"value="{{$user_info['job']}}">
@@ -74,21 +77,16 @@
                                 <input type="text" placeholder="votre numero de téléphone" id="phonenumber" value="{{$user_info['telephone']}}">
                             </label>
                             <br>
-                            <div class="contact">
-                                <h2>Vos reseaux sociaux</h2>
-                                @foreach ($contact_info as $contact)
-                                <label for="logors">
-                                        <input type="file" id="logors" name="rs" accept="image/png, image/jpeg">
-                                </label>  
-                                <label for="linkrs">
-                                        <input type="text" placeholder="lien réseau social" id="linkrs">
-                                </label>    
-                                <label for="altrs">
-                                        <input type="text" name="altalt" placeholder="Descriptif" id="altrs"> 
-                                </label>        
-                                <br>
-                                @endforeach
-                            </div>       
+
+                            <label for="email">
+                                <input type="text" placeholder="votre numero adresse email" id="email" value="{{$user_info['email']}}">
+                            </label>
+
+                            <label for="password">
+                                <input type="text" placeholder="votre mot de passe" id="password" value="">
+                            </label>
+                            <br>
+
                                 <div class="permis">
                                     <br> Si vous possédez le permis B, cochez la case
                                     <label for="permis">
@@ -98,22 +96,41 @@
                                 <br>
                                 <div class="interests">
                                     <h2> Vos centres d’intérêts&nbsp;:</h2>
+
                                     @foreach ($centres_interets_info as $centres_interets)
                                     <div class="ci">
                                         <br>
                                         
                                             <div class="ciseul">
                                         <label for="logoci">        
-                                                <input type="file" id="logoci" name="ce" accept="image/png, image/jpeg">
+                                                <input type="file" id="logoci" name="logoci" accept="image/png, image/jpeg" 
+                                                value="{{$user_info['logo']}}">
                                         </label>
-                                        <label for="logoce">        
-                                                <input type="text" name="alt" placeholder="Descriptif" id="logoce">
+                                        <label for="altci">        
+                                                <input type="text" name="altci" placeholder="Descriptif" id="altci" 
+                                                value="{{$user_info['name']}}">
                                          </label>       
                                             </div>
                                         
                                     </div>
                                     @endforeach
                                 </div>
+
+                               <div class="contact">
+                                <h2>Vos reseaux sociaux</h2>
+                                @foreach ($contact_info as $contact)
+                                <label for="logors">
+                                        <input type="file" id="logors" name="rs" accept="image/png, image/jpeg" value="{{$user_info['logo']}}">
+                                </label>  
+                                <label for="linkrs">
+                                        <input type="text" placeholder="lien réseau social" id="linkrs" value="{{$user_info['url']}}">
+                                </label>    
+                                <label for="altrs">
+                                        <input type="text" name="altalt" placeholder="Descriptif" id="altrs" value="{{$user_info['name']}}"> 
+                                </label>        
+                                <br>
+                                @endforeach
+                            </div>     
                             
                             <input type="submit" value="Mettre à jour votre profil">
                         </div>

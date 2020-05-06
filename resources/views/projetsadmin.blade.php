@@ -2,7 +2,7 @@
 @section('title') 
 Administration Projets 
 @endsection
-@section('projetsadmin')
+@section('content')
 <script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <section>
     <div class="administrationbandeau">
@@ -24,22 +24,28 @@ Administration Projets
                 <hr>
                 <a href="formations"> Gestion des Formations</a>
             </nav>
-    </div>
+    </div>              
         <div class="zonecentre">
             <section class="wrap">
             <h2>Gestion de vos projets</h2>
-                <form action="projetsadmin" method="POST">
+                <form action="{{ url('admin/projets') }}" method="POST">
+                {{csrf_field()}}
                     @foreach ($projets_info as $projets)
+                    
                     <div class='projet'>
+
+                                <label for="id">
+                                  <input type="hidden" id="id" name="id" value="{{$projets['id']}}">
+                                </label> 
                                
                                <label for="slide">
-                                       <input type="file" id="slide" name="slide" accept="image/png, image/jpeg">
+                                       <input type="file" id="slide" name="slide" accept="image/png, image/jpeg" value="{{$projets['image']}}">
                                </label>  
                                <label for="linkprojets">
-                                       <input type="text" placeholder="Lien du projet" id="linkprojets">
+                                       <input type="text" name ="linkprojets" placeholder="Lien du projet" id="linkprojets" value="{{$projets['url']}}">
                                </label>    
-                               <label for="altprojet">
-                                       <input type="text" name="altprojet" placeholder="Descriptif" id="altprojet"> 
+                               <label for="titreprojet">
+                                       <input type="text" name="titreprojet" placeholder="Descriptif" id="titreprojet" value="{{$projets['titre']}}"> 
                                </label>        
                                <br>
                      </div>          

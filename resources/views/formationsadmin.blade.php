@@ -6,7 +6,7 @@ Administration - Formations
 
 @endsection
 
-@section('formationsadmin')
+@section('content')
 <section>
     <div class="administrationbandeau">
         <h1 class="textheaderadmin"> Administration</h1>
@@ -31,32 +31,36 @@ Administration - Formations
         <div class="zonecentre">
             <section class="wrap">
             <h2>Gestion de vos formations</h2>
-                <form action="experiencesadmin" method="POST">
+            <form action="{{ url('admin/formations') }}" method="POST">
+                {{csrf_field()}}
                     @foreach ($formations_info as $formations)
                     <div class='experiences'>
 
+                    <label for="id">
+                                       <input type="hidden" id="id" name="id" value="{{$formations['id']}}">
+                               </label>
+
                                <label for="formation">
-                                       <input type="text" id="formation" name="formation" placeholder="Formation suivie">
+                                       <input type="text" id="formation" name="formation" placeholder="Formation suivie"
+                                        value="{{$formations['titre']}}">
                                </label>
                                <br>
                                <label for="societe">
-                                       <input type="text" placeholder="Société" id="societe">
-                               </label>
-                               <label for="ville">
-                                       <input type="text" name="ville" placeholder="Ville" id="ville">
+                                       <input type="text" placeholder="Société" id="societe" value="{{$formations['societe']}}">
                                </label>
                                <br>
                                 De
                                <label for="debut">
-                                       <input type="date" name="debut" id="debut">
+                                       <input type="date" name="debut" id="debut" value="{{$formations['debut']}}">
                                </label>
                                à
                                <label for="fin">
-                                       <input type="date" name="fin" id="fin">
+                                       <input type="date" name="fin" id="fin" value="{{$formations['fin']}}">
                                </label>
                                <br>
                                <label for="descriptif">
-                                       <textarea class="descriptif" name="descriptif" id="descriptif" cols="30" rows="10" placeholder="Décrivez votre experience"></textarea>
+                                       <textarea class="descriptif" name="descriptif" id="descriptif" cols="30" rows="10" 
+                                       placeholder="Décrivez votre experience" >{{$formations['descriptif']}}</textarea>
                                </label>
                                <br>
                      </div>
@@ -68,7 +72,7 @@ Administration - Formations
         </div>
 </section>
 <script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script src="../public/js/tiny.js"></script>
+<script src="{{asset('js/tiny.js')}}"></script>
 
 
 @endsection

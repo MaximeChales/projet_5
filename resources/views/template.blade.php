@@ -25,20 +25,13 @@
         <div class="seclign">
             <div class="plandusite">
                 <h2>Plan du site</h2>
-                <a href="/indexadmin.blade.php">Accueil</a>
-                <a href="/">Connexion</a>
+                <a href="projet_5/public/admin">Administration</a>
+                <a href="projet_5/public/">Votre CV</a>
                 
                             </div>
             <div class="sn">
                 <h2>Réseaux sociaux:</h2>
                 <div class="logosrs">
-                 <!--   
-                @foreach ($contact_info as $contact)
-
-                <a href="{{$contact['url']}}" target="blank"><img src="{{$contact['logo']}}" alt="réseau social"></a>
-                @endforeach
--->
-
                 </div>
             </div>
         </div>

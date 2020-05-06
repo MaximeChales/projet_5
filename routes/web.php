@@ -39,14 +39,29 @@ Route::get('/admin/projets', [
     'as' => 'projetsadmin'
 ]);
 
+Route::post('/admin/projets', [
+    'uses' =>'ProjetsController@update',
+    'as' => 'projetsadmin'
+]);
+
 
 Route::get('/admin/experiences', [
     'uses' =>'ExperiencesController@index',
     'as' => 'experiencesadmin'
 ]);
 
+Route::post('/admin/experiences', [
+    'uses' =>'ExperiencesController@update',
+    'as' => 'experiencesadmin'
+]);
+
 
 Route::get('/admin/formations', [
     'uses' =>'FormationsController@index',
+    'as' => 'formationsadmin'
+]);
+
+Route::post('/admin/formations', [
+    'uses' =>'FormationsController@update',
     'as' => 'formationsadmin'
 ]);

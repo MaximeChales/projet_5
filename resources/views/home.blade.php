@@ -172,7 +172,6 @@
         </div>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="../public/js/scroll.js"></script>
-    <script src="../public/js/slider.js"></script>
+    <script src="../public/js/tiny.js"></script>
 
 @endsection

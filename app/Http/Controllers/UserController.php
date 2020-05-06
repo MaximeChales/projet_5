@@ -26,17 +26,19 @@ class UserController extends Controller
             [
                 'nom' => $request->get('nom'),
                 'prenom' => $request->get('prenom'),
-                'date_de_naissance' => '2012-01-01',
-                'job' => '2012-01-01',
-                'adresse' => '2012-01-01',
-                'code_postal' => '20128',
-                'ville' => '2012-01-01',
-                'telephone' => '2012-01-01',
-                'accroche' => '2012-01-01',
-                'email' => '2012-01-01',
-                'photo_profil' => '2012-01-01',
-                'password' => 'toto',
-
+                'date_de_naissance' => $request->get('date_de_naissance'),
+                'job' => $request->get('job'),
+                'adresse' => $request->get('adresse'),
+                'cp' => $request->get('code_postal'),
+                'town' => $request->get('ville'),
+                'telephone' => $request->get('telephone'),
+                'accroche' => $request->get('accroche'),
+                'email' => $request->get('email'),
+                'photo_profil' => $request->get('photo_profil'),
+                'password' => $request->get('password'),
+                'logors' => $request->get('logo'),
+                'logoci' => $request->get('logo'),
+                'altci' => $request->get('name')
             ]);
 
         dump($request->all());
