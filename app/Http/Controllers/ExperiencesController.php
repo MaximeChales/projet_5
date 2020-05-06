@@ -10,7 +10,7 @@ class ExperiencesController extends Controller
 {
     public function index(ExperiencesRepository $experiences)
     {
-       $experiences_info = $experiences->getInfo(1);
+       $experiences_info = $experiences->getInfo('id');
         return  view('experiencesadmin', compact('experiences_info'));
     }
 

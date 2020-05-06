@@ -51,11 +51,11 @@ Administration - Formations
                                <br>
                                 De
                                <label for="debut">
-                                       <input type="date" name="debut" id="debut" value="{{$formations['debut']}}">
+                                       <input type="date" name="debut" id="debut" value="{{$formations['debut']->format('Y-m-d')}}">
                                </label>
                                à
                                <label for="fin">
-                                       <input type="date" name="fin" id="fin" value="{{$formations['fin']}}">
+                                       <input type="date" name="fin" id="fin" value="{{$formations['fin']->format('Y-m-d')}}">
                                </label>
                                <br>
                                <label for="descriptif">

@@ -9,14 +9,13 @@ class FormationsController extends Controller
 {
     public function index(FormationsRepository $formations)
     {
-       $formations_info = $formations->getInfo(1);
+       $formations_info = $formations->getInfo('id');
         return  view('formationsadmin', compact('formations_info'));
     }
 
     public function update(Request $request)
     {
 
-        // $validated = $request->validate(['nom'=>'required','prenom'=>'required']);
         Formation::updateOrCreate(['id' => $request->get('id')],
             [
                 'id' => $request->get('id'),
@@ -25,7 +24,7 @@ class FormationsController extends Controller
                 'ville' => $request->get('ville'),
                 'debut' => $request->get('debut'),
                 'fin' => $request->get('fin'),
-                'descriptif' => $request->get('descriptif'),
+                'descriptif' => $request->get('descriptif')
                 
             ]);
                 dump($request->all());

@@ -190,8 +190,8 @@ body {
 
 input[type=text],
 textarea {
-	padding: 5px 0px 5px 10px;
-	width: 300px;
+	padding: 5px 5px 5px 10px;
+	width: 350px;
 
 }
 

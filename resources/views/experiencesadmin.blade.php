@@ -49,16 +49,16 @@ Administration - Experiences
                                <br>
                                 De
                                <label for="debut">
-                                       <input type="date" name="debut" id="debut" value="{{$experiences['debut']}}">
+                                       <input type="date" name="debut" id="debut" value="{{$experiences['debut']->format('Y-m-d')}}">
                                </label>
                                à
                                <label for="fin">
-                                       <input type="date" name="fin" id="fin" value="{{$experiences['debut']}}">
+                                       <input type="date" name="fin" id="fin" value="{{$experiences['fin']->format('Y-m-d')}}">
                                </label>
                                <br>
                                <label for="descriptif">
                                        <textarea class="descriptif" name="descriptif" id="descriptif" cols="30" rows="10" 
-                                       placeholder="Décrivez votre experience" value="{{$experiences['descriptif']}}"></textarea>
+                                       placeholder="Décrivez votre experience" >{{$experiences['descriptif']}}</textarea>
                                </label>
                                <br>
                      </div>

@@ -25,8 +25,8 @@
         <div class="seclign">
             <div class="plandusite">
                 <h2>Plan du site</h2>
-                <a href="projet_5/public/admin">Administration</a>
-                <a href="projet_5/public/">Votre CV</a>
+                <a href="admin">Administration</a>
+                <a href="/">Votre CV</a>
                 
                             </div>
             <div class="sn">
