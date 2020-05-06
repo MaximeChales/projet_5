@@ -36,8 +36,12 @@ Administration - Experiences
                     @foreach ($experiences_info as $experiences)
                     <div class='experiences'>
 
+                               <label for="id">
+                                       <input type="hidden" id="id" name="id" placeholder="id" value="{{$experiences['id']}}">
+                               </label>
+                               <br>
                                <label for="poste">
-                                       <input type="hidden" id="poste" name="poste" placeholder="Poste occupé" value="{{$experiences['id']}}">
+                                       <input type="text" id="poste" name="poste" placeholder="Poste occupé" value="{{$experiences['titre']}}">
                                </label>
                                <br>
                                <label for="societe">

@@ -10,7 +10,7 @@ class ExperiencesController extends Controller
 {
     public function index(ExperiencesRepository $experiences)
     {
-       $experiences_info = $experiences->getInfo('id');
+       $experiences_info = $experiences->getInfo(1);
         return  view('experiencesadmin', compact('experiences_info'));
     }
 
@@ -19,7 +19,7 @@ class ExperiencesController extends Controller
         Experience::updateOrCreate(['id' => $request->get('id')],
             [
                 'id' => $request->get('id'),
-                'titre' => $request->get('formation'),
+                'titre' => $request->get('poste'),
                 'societe' => $request->get('societe'),
                 'ville' => $request->get('ville'),
                 'debut' => $request->get('debut'),

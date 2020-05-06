@@ -60,7 +60,7 @@ Administration - Formations
                                <br>
                                <label for="descriptif">
                                        <textarea class="descriptif" name="descriptif" id="descriptif" cols="30" rows="10" 
-                                       placeholder="Décrivez votre experience" >{{$formations['descriptif']}}</textarea>
+                                       placeholder="Décrivez votre formation" >{{$formations['descriptif']}}</textarea>
                                </label>
                                <br>
                      </div>
