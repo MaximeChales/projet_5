@@ -34,20 +34,19 @@ Administration Projets
                     
                     <div class='projet'>
 
-                                <label for="id">
-                                  <input type="hidden" id="id" name="id" value="{{$projets['id']}}">
+                    <label for="id">
+                                  <input type="hidden" id="id" name="id[]" value="{{$projets['id']}}">
                                 </label> 
                                
                                <label for="slide">
-                                       <input type="file" id="slide" name="slide" accept="image/png, image/jpeg" value="{{$projets['image']}}">
+                                       <input type="file" id="slide" name="slide[$i]" accept="image/png, image/jpeg" value="{{$projets['image']}}">
                                </label>  
                                <label for="linkprojets">
-                                       <input type="text" name ="linkprojets" placeholder="Lien du projet" id="linkprojets" value="{{$projets['url']}}">
+                                       <input type="text" name ="linkprojets[$i]" placeholder="Lien du projet" id="linkprojets" value="{{$projets['url']}}">
                                </label>    
                                <label for="titreprojet">
-                                       <input type="text" name="titreprojet" placeholder="Descriptif" id="titreprojet" value="{{$projets['titre']}}"> 
-                               </label>        
-                               <br>
+                                       <input type="text" name="titreprojet[$i]" placeholder="Descriptif" id="titreprojet" value="{{$projets['titre']}}">
+                               </label> 
                      </div>          
                     @endforeach
                     <input type="submit" value="Mettre à jour vos projets">

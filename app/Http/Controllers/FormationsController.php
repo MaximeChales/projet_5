@@ -9,7 +9,7 @@ class FormationsController extends Controller
 {
     public function index(FormationsRepository $formations)
     {
-       $formations_info = $formations->getInfo('id');
+       $formations_info = $formations->getInfo();
         return  view('formationsadmin', compact('formations_info'));
     }
 
@@ -20,14 +20,12 @@ class FormationsController extends Controller
             [
                 'id' => $request->get('id'),
                 'titre' => $request->get('formation'),
-                'societe' => $request->get('societe'),
                 'ville' => $request->get('ville'),
                 'debut' => $request->get('debut'),
                 'fin' => $request->get('fin'),
                 'descriptif' => $request->get('descriptif')
                 
             ]);
-                dump($request->all());
-        
+         return  view('home');
     }
 }

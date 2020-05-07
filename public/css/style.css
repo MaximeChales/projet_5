@@ -415,10 +415,10 @@ footer a {
 	margin-top: 50px;
 }
 
-.zonecentre .experiences input[type=date] {
+.zonecentre input[type=date] {
 	padding-left: 10px;
 	margin-left: 10px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .zonecentre .experiences input[type=text] {
@@ -436,6 +436,12 @@ footer a {
 
 .zonecentre .mb {
 	width: 20%;
+}
+
+/*Formations admin*/
+
+.formationsadmin{
+	margin: 50px 0 50px 0;
 }
 
 @media screen and (max-width: 1024px) {

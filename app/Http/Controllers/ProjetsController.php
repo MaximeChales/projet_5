@@ -15,13 +15,36 @@ class ProjetsController extends Controller
 
     public function update(Request $request)
     {
-        Projet::updateOrCreate(['id' => $request->get('id')],
-            [
-                'id' => $request->get('id'),
-                'image' => $request->get('slide'),
-                'url' => $request->get('linkprojects'),
-                'titre' => $request->get('titreprojets')
-            ]);
+            $count = count($request->get('slide'));
+        for($i = 0 ; $i < $count ; $i++) {
+            Projet::updateOrCreate(['id' => $request->get('id')[$i]],
+                [
+                    'image' => $request->get('slide')[$i],
+                    'url' => $request->get('linkprojets')[$i],
+                    'titre' => $request->get('titreprojet')[$i]
+                ]);
+        }
 
     }
+
+    public function save()
+    {
+       request()->validate([
+         'file'  => 'required|mimes:png,jpeg,gif,webp|max:2048',
+       ]);
+ 
+       if ($files = $request->file('fileUpload')) {
+           $destinationPath = 'public/img/'; // upload path
+           $profilefile = date('YmdHis') . "." . $files->getClientOriginalExtension();
+           $files->move($destinationPath, $profilefile);
+           $insert['file'] = "$profilefile";
+        }
+         
+        $check = Document::insertGetId($insert);
+ 
+        return Redirect::to("file")
+        ->withSuccess('Image téléchargée avec succès');
+ 
+    }
 }
+

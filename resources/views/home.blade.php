@@ -104,7 +104,7 @@
                         <h4>{{$experiences['ville']}} - {{$experiences['societe']}}</h4>
                          Du {{ date('m Y', strtotime($experiences['debut'])) }} au {{ date('m Y', strtotime($experiences['fin'])) }}
                         <div class="li">
-                        {{$experiences['descriptif']}}
+                        {!!$experiences['descriptif']!!}
                         </div>
                     </div>
                     @endforeach
@@ -124,7 +124,7 @@
 
                     <div class="li">
 
-                    {{$formations['descriptif']}}
+                    {!!$formations['descriptif']!!}
                     </div>
                 </div>
                 @endforeach

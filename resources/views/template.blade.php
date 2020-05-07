@@ -26,7 +26,7 @@
             <div class="plandusite">
                 <h2>Plan du site</h2>
                 <a href="admin">Administration</a>
-                <a href="/">Votre CV</a>
+                <a href="/public/">Votre CV</a>
                 
                             </div>
             <div class="sn">

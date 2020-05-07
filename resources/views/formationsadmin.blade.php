@@ -19,7 +19,7 @@ Administration - Formations
             </label>
             <input type="checkbox" id="hamburger" />
             <nav class="navigation" id="nav">
-                <a href="profil" ><div class="lien">Gestion de mes Informations</div></a>
+                <a href="user" ><div class="lien">Gestion de mes Informations</div></a>
                 <hr>
                 <a href="projets">Gestion de mes Projets </a>
                 <hr>
@@ -31,22 +31,24 @@ Administration - Formations
         <div class="zonecentre">
             <section class="wrap">
             <h2>Gestion de vos formations</h2>
-            <form action="{{ url('admin/formations') }}" method="POST">
+           @foreach ($formations_info as $formations)
+            <form action="{{ url('admin/formations/') }}" method="POST">
+             
                 {{csrf_field()}}
-                    @foreach ($formations_info as $formations)
-                    <div class='experiences'>
+                    
+                    <div class='formations'>
 
                     <label for="id">
                                        <input type="hidden" id="id" name="id" value="{{$formations['id']}}">
                                </label>
 
-                               <label for="formation">
+                               <label for="formationadmin">
                                        <input type="text" id="formation" name="formation" placeholder="Formation suivie"
                                         value="{{$formations['titre']}}">
                                </label>
                                <br>
                                <label for="societe">
-                                       <input type="text" placeholder="Société" id="societe" value="{{$formations['societe']}}">
+                                       <input type="text" placeholder="Société" id="societe" name="societe" value="{{$formations['societe']}}">
                                </label>
                                <br>
                                 De
@@ -63,16 +65,27 @@ Administration - Formations
                                        placeholder="Décrivez votre formation" >{{$formations['descriptif']}}</textarea>
                                </label>
                                <br>
-                     </div>
-                    @endforeach
-                    <input type="submit" value="Mettre à jour vos formations">
+                     
+                    <input type="submit" value="Mettre à jour vos formations">&nbsp;<a class="suppr" href="admin/formations/suppr">
+                    Supprimer la formation</a>
+                </div>
                 </form>
+                @endforeach
+<!--
+    <div id="ajoutSupprimerArticle">
+       <a href="javascript:;" title="Ajouter une formation" class="ajout" rel="info"> Ajouter une formation</a>
+       <a href="javascript:;" title="Supprimer une formation" class="supprimer" rel="info">retirer un formulaire</a>
+    </div> 
+   -->   
+
             </section>
             </div>
         </div>
 </section>
 <script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('js/tiny.js')}}"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="{{asset('js/infosuser.js')}}"></script>
 
 
 @endsection

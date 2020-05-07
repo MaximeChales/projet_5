@@ -31,9 +31,9 @@ Administration - Experiences
         <div class="zonecentre">
             <section class="wrap">
             <h2>Gestion de vos experiences</h2>
+            @foreach ($experiences_info as $experiences)
             <form action="{{ url('admin/experiences') }}" method="POST">
                 {{csrf_field()}}
-                    @foreach ($experiences_info as $experiences)
                     <div class='experiences'>
 
                                <label for="id">
@@ -45,7 +45,7 @@ Administration - Experiences
                                </label>
                                <br>
                                <label for="societe">
-                                       <input type="text" placeholder="Société" id="societe" value="{{$experiences['societe']}}">
+                                       <input type="text" placeholder="Société"  name="societe" id="societe" value="{{$experiences['societe']}}">
                                </label>
                                <label for="ville">
                                        <input type="text" name="ville" placeholder="Ville" id="ville" value="{{$experiences['ville']}}">
@@ -66,9 +66,9 @@ Administration - Experiences
                                </label>
                                <br>
                      </div>
-                    @endforeach
                     <input type="submit" value="Mettre à jour vos experiences">
                 </form>
+             @endforeach   
             </section>
             </div>
         </div>

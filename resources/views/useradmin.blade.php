@@ -16,7 +16,7 @@
             </label>
             <input type="checkbox" id="hamburger" />
             <nav class="navigation" id="nav">
-                <a href="profil" ><div class="lien">Gestion de mes Informations</div></a>
+                <a href="user" ><div class="lien">Gestion de mes Informations</div></a>
                 <hr>
                 <a href="projets">Gestion de mes Projets </a>
                 <hr>
@@ -52,7 +52,8 @@
                             </label>
                             <br>
                             <label for="date_de_naissance">
-                                <input type="date" placeholder="votre date de naissance" name="date_de_naissance" value="{{$user_info['date_de_naissance']}}">
+                                <input type="date" placeholder="votre date de naissance" name="date_de_naissance"
+                                 value="{{$user_info['date_de_naissance']->format('Y-m-d')}}">
                             </label>
                             <br>
                             <label for="job">
@@ -62,7 +63,7 @@
                             <br>
 
                             <label for="address">
-                                <input type="text" placeholder="votre adresse" name="address" value="{{$user_info['adresse']}}">
+                                <input type="text" placeholder="votre adresse"  id="address" name="address" value="{{$user_info['adresse']}}">
                             </label>
                             <br>
                             <label for="cp">
@@ -79,11 +80,11 @@
                             <br>
 
                             <label for="email">
-                                <input type="text" placeholder="votre numero adresse email" id="email" value="{{$user_info['email']}}">
+                                <input type="text" placeholder="votre numero adresse email" id="email" name="email" value="{{$user_info['email']}}">
                             </label>
 
                             <label for="password">
-                                <input type="text" placeholder="votre mot de passe" id="password" value="">
+                                <input type="text" placeholder="votre mot de passe" name="password" id="password" value="{{$user_info['password']}}">
                             </label>
                             <br>
 

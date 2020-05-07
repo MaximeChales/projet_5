@@ -25,7 +25,9 @@ class ExperiencesController extends Controller
                 'debut' => $request->get('debut'),
                 'fin' => $request->get('fin'),
                 'descriptif' => $request->get('descriptif'),
+                
             ]);
-
+            
+            
     }
 }
