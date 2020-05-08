@@ -63,7 +63,7 @@
                             <br>
 
                             <label for="address">
-                                <input type="text" placeholder="votre adresse"  id="address" name="address" value="{{$user_info['adresse']}}">
+                                <input type="text" placeholder="votre adresse"  id="addess" name="address" value="{{$user_info['adresse']}}">
                             </label>
                             <br>
                             <label for="cp">
@@ -71,11 +71,11 @@
                             </label>
                             <br>
                             <label for="town">
-                                <input type="text" placeholder="votre ville" id="town" value="{{$user_info['ville']}}">
+                                <input type="text" placeholder="votre ville" id="town" value="{{$user_info['ville']}}" name="town">
                             </label>
                             <br>
                             <label for="phonenumber">
-                                <input type="text" placeholder="votre numero de téléphone" id="phonenumber" value="{{$user_info['telephone']}}">
+                                <input type="text" placeholder="votre numero de téléphone" name="phonenumber" id="phonenumber" value="{{$user_info['telephone']}}">
                             </label>
                             <br>
 
@@ -131,9 +131,14 @@
                                 </label>        
                                 <br>
                                 @endforeach
-                            </div>     
+                            </div>   
                             
-                            <input type="submit" value="Mettre à jour votre profil">
+                            <label for="accroche">        
+                                                <input type="text" name="accroche"  id="accroche" placeholder="Descriptif" 
+                                                value="{{$user_info['accroche']}}">
+                            </label>  
+                            <br>
+                            <input type="submit" value="Mettre à jour vos informations">
                         </div>
                     </div>
                     </form>

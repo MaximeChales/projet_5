@@ -19,7 +19,7 @@ Administration - Experiences
             </label>
             <input type="checkbox" id="hamburger" />
             <nav class="navigation" id="nav">
-                <a href="" ><div class="lien">Gestion de mes Informations</div></a>
+                <a href="user" >Gestion de mes Informations</a>
                 <hr>
                 <a href="projets">Gestion de mes Projets </a>
                 <hr>
@@ -31,10 +31,12 @@ Administration - Experiences
         <div class="zonecentre">
             <section class="wrap">
             <h2>Gestion de vos experiences</h2>
-            @foreach ($experiences_info as $experiences)
+            
+            @foreach ($experiences_info as $experiences)  
+            <div class='experiences'>
             <form action="{{ url('admin/experiences') }}" method="POST">
                 {{csrf_field()}}
-                    <div class='experiences'>
+                    
 
                                <label for="id">
                                        <input type="hidden" id="id" name="id" placeholder="id" value="{{$experiences['id']}}">
@@ -65,16 +67,27 @@ Administration - Experiences
                                        placeholder="Décrivez votre experience" >{{$experiences['descriptif']}}</textarea>
                                </label>
                                <br>
-                     </div>
+                     
                     <input type="submit" value="Mettre à jour vos experiences">
                 </form>
-             @endforeach   
+              </div>    
+            </div>  
+             @endforeach  
+             
+            
+   <div id="ajoutSupprimerArticle">
+       <a href="javascript:;" title="Ajouter une formation" class="ajout" rel="info"> Ajouter une formation</a>
+       <a href="javascript:;" title="Supprimer une formation" class="supprimer" rel="info">Retirer un formulaire</a>
+    </div>    
+
             </section>
             </div>
         </div>
 </section>
 <script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('js/tiny.js')}}"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="{{asset('js/experiences.js')}}"></script>
 
 
 @endsection

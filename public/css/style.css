@@ -440,8 +440,13 @@ footer a {
 
 /*Formations admin*/
 
-.formationsadmin{
-	margin: 50px 0 50px 0;
+.formation_individuelle{
+	margin: 20px 0 50px 0;
+}
+
+/*Projets admin*/
+.projet{
+	margin: 20px 0 20px 0;
 }
 
 @media screen and (max-width: 1024px) {

@@ -26,6 +26,22 @@ class FormationsController extends Controller
                 'descriptif' => $request->get('descriptif')
                 
             ]);
-         return  view('home');
+
+    }
+
+    public function delete(Request $request)
+    {
+
+        Formation::delete(['id' => $request->forceDelete()],
+            [
+                'id' => $request->get('id'),
+                'titre' => $request->get('formation'),
+                'ville' => $request->get('ville'),
+                'debut' => $request->get('debut'),
+                'fin' => $request->get('fin'),
+                'descriptif' => $request->get('descriptif')
+                
+            ]);
+         
     }
 }

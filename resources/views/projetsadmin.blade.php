@@ -16,7 +16,7 @@ Administration Projets
             </label>
             <input type="checkbox" id="hamburger" />
             <nav class="navigation" id="nav">
-                <a href="profil" ><div class="lien">Gestion de mes Informations</div></a>
+                <a href="user" >Gestion de mes Informations</a>
                 <hr>
                 <a href="projets">Gestion de mes Projets </a>
                 <hr>
@@ -28,12 +28,10 @@ Administration Projets
         <div class="zonecentre">
             <section class="wrap">
             <h2>Gestion de vos projets</h2>
+             @foreach ($projets_info as $projets)
+             <div class='projet'>
                 <form action="{{ url('admin/projets') }}" method="POST">
                 {{csrf_field()}}
-                    @foreach ($projets_info as $projets)
-                    
-                    <div class='projet'>
-
                     <label for="id">
                                   <input type="hidden" id="id" name="id[]" value="{{$projets['id']}}">
                                 </label> 
@@ -47,10 +45,12 @@ Administration Projets
                                <label for="titreprojet">
                                        <input type="text" name="titreprojet[$i]" placeholder="Descriptif" id="titreprojet" value="{{$projets['titre']}}">
                                </label> 
-                     </div>          
-                    @endforeach
+                              
+                    <br>
                     <input type="submit" value="Mettre à jour vos projets">
                     </form>
+                    </div> 
+                    @endforeach
             </section>
             </div>
         </div>

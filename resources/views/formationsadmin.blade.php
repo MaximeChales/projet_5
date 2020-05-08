@@ -7,6 +7,11 @@ Administration - Formations
 @endsection
 
 @section('content')
+<script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="{{asset('js/formations.js')}}"></script>
+<script src="{{asset('js/tiny.js')}}"></script>
+
 <section>
     <div class="administrationbandeau">
         <h1 class="textheaderadmin"> Administration</h1>
@@ -31,12 +36,12 @@ Administration - Formations
         <div class="zonecentre">
             <section class="wrap">
             <h2>Gestion de vos formations</h2>
+        <div class='formations'>    
            @foreach ($formations_info as $formations)
+           <div class="formation_individuelle">  
             <form action="{{ url('admin/formations/') }}" method="POST">
              
                 {{csrf_field()}}
-                    
-                    <div class='formations'>
 
                     <label for="id">
                                        <input type="hidden" id="id" name="id" value="{{$formations['id']}}">
@@ -66,26 +71,40 @@ Administration - Formations
                                </label>
                                <br>
                      
-                    <input type="submit" value="Mettre à jour vos formations">&nbsp;<a class="suppr" href="admin/formations/suppr">
+                    <input type="submit" value="Mettre à jour vos formations">&nbsp;<a class="suppr" 
+                    href="{{asset('formations/delete')}}/{{$formations['id']}}">
                     Supprimer la formation</a>
-                </div>
+                    </div>
                 </form>
                 @endforeach
-<!--
+            </div>
+
     <div id="ajoutSupprimerArticle">
        <a href="javascript:;" title="Ajouter une formation" class="ajout" rel="info"> Ajouter une formation</a>
-       <a href="javascript:;" title="Supprimer une formation" class="supprimer" rel="info">retirer un formulaire</a>
-    </div> 
-   -->   
+       <a href="javascript:;" title="Supprimer une formation" class="supprimer" rel="info">Retirer un formulaire</a>
+    </div>    
 
             </section>
             </div>
         </div>
 </section>
-<script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script src="{{asset('js/tiny.js')}}"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script src="{{asset('js/infosuser.js')}}"></script>
+<!--
+<script>
+        $('.suppr').on('click', function() {
+            var course_id = $(this).prop('id');
+            $.ajax({
+                url: "admin/formations/delete",
+                data: {
+                    id: course_id
+                },
+                success: function(result) {
+                    alert('Formation supprimée avec succès !');
+                    $('#' + course_id).hide();
+                }
+            });
+        });
+    </script>
+-->
 
 
 @endsection
