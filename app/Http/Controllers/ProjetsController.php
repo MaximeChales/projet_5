@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Repositories\ProjetsRepository;
 use App\Models\Projet;
 class ProjetsController extends Controller
+
+
 {
+ 
     public function index(ProjetsRepository $projets)
     {
        $projets_info = $projets->getInfo(1);
@@ -23,6 +26,7 @@ class ProjetsController extends Controller
                     'url' => $request->get('linkprojets')[$i],
                     'titre' => $request->get('titreprojet')[$i]
                 ]);
+                return redirect()->to('admin/projets/'); 
         }
 
     }
@@ -44,7 +48,8 @@ class ProjetsController extends Controller
  
         return Redirect::to("file")
         ->withSuccess('Image téléchargée avec succès');
- 
+
     }
+  
 }
 

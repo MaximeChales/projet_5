@@ -28,6 +28,7 @@ class ExperiencesController extends Controller
                 
             ]);
             
-            
+            return redirect()->to('admin/experiences/'); 
+
     }
 }

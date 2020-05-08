@@ -26,6 +26,7 @@ class FormationsController extends Controller
                 'descriptif' => $request->get('descriptif')
                 
             ]);
+            return redirect()->to('admin/formations/'); 
 
     }
 
@@ -42,6 +43,6 @@ class FormationsController extends Controller
                 'descriptif' => $request->get('descriptif')
                 
             ]);
-         
+            return redirect()->to('admin/formations/'); 
     }
 }

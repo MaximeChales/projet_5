@@ -41,6 +41,6 @@ class UserController extends Controller
                 'altci' => $request->get('name')
             ]);
 
-        dump($request->all());
+            return redirect()->to('admin/user/'); 
     }
 }
