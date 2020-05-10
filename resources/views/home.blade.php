@@ -66,7 +66,7 @@
 
             </div>
         </section>
-        <section class="section" id="parcours">
+        <section class="section">
             <div class="bandeauparcours">
             {{$user_info['accroche']}}
             </div>
@@ -90,7 +90,7 @@
                         </a>
                     </div>
                     @endforeach
-
+                    <div id="parcours"></div>
                 </div>
                 <div class="experiences">
                     <div class="minibandeaux">
@@ -139,6 +139,7 @@
         </div>
         <div class="wrap2">
             <form id="contact" method="post" action="https://mchales.alwaysdata.net/">
+                {{csrf_field()}}
                 <br><br>
                 <div id="txtcontact"> Si vous souhaitez me contacter, Je vous invite à utiliser le formulaire ci-après.
                 </div>
@@ -146,12 +147,12 @@
                     <br><br>
                     <label for="name">Votre Nom
                         <br>
-                        <input placeholder="Votre Nom" id="name">
+                        <input placeholder="Votre Nom" id="name" type="email">
                     </label>
                     <br><br>
                     <label for="email">Votre adresse email
                         <br>
-                        <input type="email" placeholder="Votre Email"  id="email">
+                        <input type="text" placeholder="Votre Email"  id="email">
                     </label>
                     <br><br>
                     <label for="objet">Sujet du message
@@ -172,6 +173,7 @@
         </div>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="../public/js/tiny.js"></script>
+    <script src="{{asset('js/slider.js')}}"></script>
+    <script src="{{asset('js/scroll.js')}}"></script>
 
 @endsection

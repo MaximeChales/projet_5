@@ -69,6 +69,8 @@ Administration - Experiences
                     <input type="submit" value="Mettre à jour vos experiences">
                 </form>
              @endforeach   
+             <a href="javascript:;" title="Ajouter une formation" class="ajout" rel="info"> Ajouter une formation</a>
+       <a href="javascript:;" title="Supprimer une formation" class="supprimer" rel="info">Retirer un formulaire</a>
             </section>
             </div>
         </div>

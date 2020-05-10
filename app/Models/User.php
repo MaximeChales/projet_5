@@ -36,7 +36,7 @@ class User extends Model
 
 	protected $casts = [
 		'code_postal' => 'int',
-		'permis_b' => 'bool'
+		'permis_b' => 'text'
 	];
 
 	protected $dates = [

@@ -71,7 +71,7 @@ body {
 	width: 350px;
 	display: block;
 	border-radius: 50%;
-	margin: auto;
+
 }
 
 .slide {
@@ -188,7 +188,7 @@ body {
 	background-color: silver;
 }
 
-input[type=text],
+input[type=text],input[type=email],
 textarea {
 	padding: 5px 5px 5px 10px;
 	width: 350px;

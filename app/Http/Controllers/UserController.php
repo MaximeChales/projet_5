@@ -34,6 +34,7 @@ class UserController extends Controller
                 'telephone' => $request->get('phonenumber'),
                 'accroche' => $request->get('accroche'),
                 'email' => $request->get('email'),
+                'permis_b' => $request->get('permis'),
                 'photo_profil' => $request->get('photo'),
                 'password' => $request->get('password'),
                 'logors' => $request->get('logo'),

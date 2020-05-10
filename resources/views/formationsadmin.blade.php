@@ -7,10 +7,6 @@ Administration - Formations
 @endsection
 
 @section('content')
-<script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script src="{{asset('js/formations.js')}}"></script>
-<script src="{{asset('js/tiny.js')}}"></script>
 
 <section>
     <div class="administrationbandeau">
@@ -105,6 +101,9 @@ Administration - Formations
         });
     </script>
 -->
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="{{asset('js/tiny.js')}}"></script>
+<script src="{{asset('js/formations.js')}}"></script>
 
 @endsection

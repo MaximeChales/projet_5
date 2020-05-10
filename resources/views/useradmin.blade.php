@@ -88,12 +88,15 @@
                             </label>
                             <br>
 
-                                <div class="permis">
-                                    <br> Si vous possédez le permis B, cochez la case
+                            <div class="permis">
+                                    <br> Permis obtenus
                                     <label for="permis">
-                                        <input type="checkbox" name="permis" id="permis">
+                                    <br>
+                                        <input type="text" name="permis" id="permis" value="{{$user_info['permis_b']}}">
                                     </label>
                                 </div>
+
+
                                 <br>
                                 <div class="interests">
                                     <h2> Vos centres d’intérêts&nbsp;:</h2>
@@ -132,7 +135,8 @@
                                 <br>
                                 @endforeach
                             </div>   
-                            
+                            <br>
+                            <h2>Accroche</h2>     
                             <label for="accroche">        
                                                 <input type="text" name="accroche"  id="accroche" placeholder="Descriptif" 
                                                 value="{{$user_info['accroche']}}">
