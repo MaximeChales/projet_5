@@ -108,11 +108,11 @@
                                             <div class="ciseul">
                                         <label for="logoci">        
                                                 <input type="file" id="logoci" name="logoci" accept="image/png, image/jpeg" 
-                                                value="{{$user_info['logo']}}">
+                                                value="{{$centres_interets['logo']}}">
                                         </label>
                                         <label for="altci">        
                                                 <input type="text" name="altci" placeholder="Descriptif" id="altci" 
-                                                value="{{$user_info['name']}}">
+                                                value="{{$centres_interets['name']}}">
                                          </label>       
                                             </div>
                                         
@@ -124,15 +124,16 @@
                                 <h2>Vos reseaux sociaux</h2>
                                 @foreach ($contact_info as $contact)
                                 <label for="logors">
-                                        <input type="file" id="logors" name="rs" accept="image/png, image/jpeg" value="{{$user_info['logo']}}">
+                                        <input type="file" id="logors" name="rs" accept="image/png, image/jpeg" value="{{$contact['logo']}}">
                                 </label>  
                                 <label for="linkrs">
-                                        <input type="text" placeholder="lien réseau social" id="linkrs" value="{{$user_info['url']}}">
+                                        <input type="text" placeholder="lien réseau social" id="linkrs" value="{{$contact['url']}}">
                                 </label>    
                                 <label for="altrs">
-                                        <input type="text" name="altalt" placeholder="Descriptif" id="altrs" value="{{$user_info['name']}}"> 
+                                        <input type="text" name="altalt" placeholder="Descriptif" id="altrs" value="{{$contact['name']}}"> 
                                 </label>        
                                 <br>
+                                
                                 @endforeach
                             </div>   
                             <br>

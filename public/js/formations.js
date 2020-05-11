@@ -1,19 +1,14 @@
-$(document).ready(function () {
+
 
     $(".supprimer").hide();
+          
+         // Ajoute un lien au clic sur boutton ADD
+        $('.ajout').on('click', function(){
+        $( ".formation_individuelle:last" ).clone().appendTo( ".formations" );
 
-    $(".ajout").click(function (){
-        let b = document.body;
-        let newP = document.createElement('p');
-        
-        //Ajoute le paragraphe créé comme premier enfant de l'élément body
-        b.prepend(newP);
-        
-        //Ajoute le texte créé comme dernier enfant de l'élément body
-        b.append(newTexte);
-        
 
-    });
+        });
+         
 
 
     $(".supprimer").click(function (){
@@ -24,6 +19,3 @@ $(document).ready(function () {
         if ( $(".formation_individuelle").length < 2 ) { $(".supprimer").fadeOut("fast"); }
 
     });
-
-
-});

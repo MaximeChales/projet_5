@@ -70,10 +70,11 @@ Administration - Formations
                     <input type="submit" value="Mettre à jour vos formations">&nbsp;<a class="suppr" 
                     href="{{asset('formations/delete')}}/{{$formations['id']}}">
                     Supprimer la formation</a>
-                    </div>
+                   
                 </form>
+                </div>
                 @endforeach
-            </div>
+           </div> 
 
     <div id="ajoutSupprimerArticle">
        <a href="javascript:;" title="Ajouter une formation" class="ajout" rel="info"> Ajouter une formation</a>
