@@ -74,17 +74,21 @@ Administration - Formations
                 </form>
                 </div>
                 @endforeach
+                <div id="ajout"></div>
            </div> 
 
     <div id="ajoutSupprimerArticle">
        <a href="javascript:;" title="Ajouter une formation" class="ajout" rel="info"> Ajouter une formation</a>
-       <a href="javascript:;" title="Supprimer une formation" class="supprimer" rel="info">Retirer un formulaire</a>
     </div>    
 
             </section>
             </div>
         </div>
 </section>
+<script>
+var add_url = "{{ url('admin/formations/') }}";
+var token ='{{csrf_field()}}';
+</script>
 <!--
 <script>
         $('.suppr').on('click', function() {
@@ -102,9 +106,10 @@ Administration - Formations
         });
     </script>
 -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('js/tiny.js')}}"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
 <script src="{{asset('js/formations.js')}}"></script>
 
 @endsection

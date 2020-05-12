@@ -19,7 +19,9 @@ class FormationsController extends Controller
         Formation::updateOrCreate(['id' => $request->get('id')],
             [
                 'id' => $request->get('id'),
+                'user_id' => 1,
                 'titre' => $request->get('formation'),
+                'societe' => $request->get('societe'),
                 'ville' => $request->get('ville'),
                 'debut' => $request->get('debut'),
                 'fin' => $request->get('fin'),

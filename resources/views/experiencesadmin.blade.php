@@ -32,6 +32,7 @@ Administration - Experiences
             <section class="wrap">
             <h2>Gestion de vos experiences</h2>
             @foreach ($experiences_info as $experiences)
+            <div class="experiences_individuelle">
             <form action="{{asset('admin/experiences')}}" method="POST">
                 {{csrf_field()}}
                     <div class='experiences'>
@@ -68,13 +69,20 @@ Administration - Experiences
                      </div>
                     <input type="submit" value="Mettre à jour vos experiences">
                 </form>
-             @endforeach   
+                </div>
+             @endforeach 
+             <div id="ajout_exp"></div>  
              <a href="javascript:;" title="Ajouter une formation" class="ajout" rel="info"> Ajouter une formation</a>
        <a href="javascript:;" title="Supprimer une formation" class="supprimer" rel="info">Retirer un formulaire</a>
             </section>
             </div>
         </div>
 </section>
+
+<script>
+var add_url = "{{ url('admin/experiences/') }}";
+var token ='{{csrf_field()}}';
+</script>
 <script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('js/tiny.js')}}"></script>
 

@@ -12,6 +12,11 @@ use App\Repositories\FormationsRepository;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(UserRepository $user,ContactRepository $contact){
         $user_info = $user->getInfo(1);
         $contact_info = $contact->getInfo(1);

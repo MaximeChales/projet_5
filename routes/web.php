@@ -65,3 +65,6 @@ Route::post('/admin/formations', [
     'uses' =>'FormationsController@update',
     'as' => 'formationsadmin'
 ]);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
