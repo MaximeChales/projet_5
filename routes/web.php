@@ -44,6 +44,9 @@ Route::post('/admin/projets', [
     'as' => 'projetsadmin'
 ]);
 
+Route::delete('/admin/projets/{id}/delete', 
+'ProjetsController@delete');
+
 
 Route::get('/admin/experiences', [
     'uses' =>'ExperiencesController@index',
@@ -55,6 +58,9 @@ Route::post('/admin/experiences', [
     'as' => 'experiencesadmin'
 ]);
 
+Route::delete('/admin/experiences/{id}/delete', 
+'ExperiencesController@delete');
+
 
 Route::get('/admin/formations', [
     'uses' =>'FormationsController@index',
@@ -65,6 +71,10 @@ Route::post('/admin/formations', [
     'uses' =>'FormationsController@update',
     'as' => 'formationsadmin'
 ]);
+
+Route::delete('/admin/formations/projets/{id}/delete', 
+'FormationsController@delete');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

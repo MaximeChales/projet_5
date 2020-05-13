@@ -156,7 +156,6 @@
             </div>
         </div>
 </section>
-<script src="public/js/user.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script src="{{asset('js/centres_interets.js')}}"></script>
 <script src="{{asset('js/reseaux_sociaux.js')}}"></script>

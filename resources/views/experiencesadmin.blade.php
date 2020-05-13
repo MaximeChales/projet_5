@@ -66,6 +66,9 @@ Administration - Experiences
                                        placeholder="Décrivez votre experience" >{{$experiences['descriptif']}}</textarea>
                                </label>
                                <br>
+
+                            <a href="#" class="delete">Supprimer l'experience</a>            
+                              
                      </div>
                     <input type="submit" value="Mettre à jour vos experiences">
                 </form>
@@ -77,12 +80,34 @@ Administration - Experiences
             </div>
         </div>
 </section>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>
+$(".delete").click(function(){
+        var id = $(this).data("{{$experiences['id   ']}}");
+        var token = $(this).data("token");
+        $.ajax(
+        {
+            url: "experiences/delete/"+id,
+            type: 'delete',
+            dataType: "JSON",
+            data: {
+                "id": id,
+                "_method": 'DELETE',
+                "_token": token,
+            },
+            success: function ()
+            {
+                console.log("it Work");
+            }
+        });
 
+        console.log("It failed");
+    });
+    </script>
 <script>
         var add_url = "{{ url('admin/experiences/') }}";
         var token ='{{csrf_field()}}';
 </script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('js/tiny.js')}}"></script>
 <script src="{{asset('js/experiences.js')}}"></script>
