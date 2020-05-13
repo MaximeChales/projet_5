@@ -58,7 +58,9 @@ class UserController extends Controller
 
         //  $validated = $request->validate([       'nom'=>'required','prenom'=>'required']);
         User::updateOrCreate(['id' => $request->get('user_id')],
+       
             [
+                $user = auth()->user(),
                 'nom' => $request->get('nom'),
                 'prenom' => $request->get('prenom'),
                 'date_de_naissance' => $request->get('date_de_naissance'),

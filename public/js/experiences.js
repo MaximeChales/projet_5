@@ -1,16 +1,19 @@
 $('.ajout').on('click', function () {
-        html = '     <div class="formation_individuelle"> ' +
+        html = '     <div class="experience_individuelle"> ' +
             ' <form action="'+add_url+'" method="POST">' +
             token +
                 ' <label for="id">' +
                 ' <input type="hidden" id="id" name="id" value="0">' +
                 '   </label>' +
-                ' <label for="formationadmin">' +
-                ' <input type="text" id="formation" name="formation" placeholder="Formation suivie">' +
+                ' <label for="poste">' +
+                ' <input type="text" id="poste" name="poste" placeholder="Poste occupé">' +
                 '  </label>' +
                 ' <br>' +
                 '  <label for="societe">' +
                 '          <input type="text" placeholder="Société" id="societe" name="societe">' +
+                '  </label>' +
+                '  <label for="ville">' +
+                '          <input type="text" placeholder="Ville" id="ville" name="ville">' +
                 '  </label>' +
                 '  <br>' +
                 '    De' +

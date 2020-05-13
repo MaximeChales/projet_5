@@ -77,7 +77,7 @@ Administration - Formations
                 <div id="ajout"></div>
            </div> 
 
-    <div id="ajoutSupprimerArticle">
+    <div id="ajoutArticle">
        <a href="javascript:;" title="Ajouter une formation" class="ajout" rel="info"> Ajouter une formation</a>
     </div>    
 
@@ -86,30 +86,11 @@ Administration - Formations
         </div>
 </section>
 <script>
-var add_url = "{{ url('admin/formations/') }}";
-var token ='{{csrf_field()}}';
+    var add_url = "{{ url('admin/formations/') }}";
+    var token ='{{csrf_field()}}';
 </script>
-<!--
-<script>
-        $('.suppr').on('click', function() {
-            var course_id = $(this).prop('id');
-            $.ajax({
-                url: "admin/formations/delete",
-                data: {
-                    id: course_id
-                },
-                success: function(result) {
-                    alert('Formation supprimée avec succès !');
-                    $('#' + course_id).hide();
-                }
-            });
-        });
-    </script>
--->
 <script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('js/tiny.js')}}"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-
 <script src="{{asset('js/formations.js')}}"></script>
-
 @endsection

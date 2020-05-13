@@ -1,6 +1,6 @@
-@extends('template') 
+@extends('template')
 
-@section('title') Administration présentation @endsection 
+@section('title') Administration présentation @endsection
 
 @section('content')
 
@@ -8,7 +8,7 @@
 <section>
     <div class="administrationbandeau">
         <h1 class="textheaderadmin"> Administration</h1></div>
-        
+
     <div class="contentadmin">
     <div class="mb" id="mb">
             <label id="responsive-nav" for="hamburger">
@@ -59,7 +59,7 @@
                             <label for="job">
                                 <input type="text" placeholder="votre emploi" name="job"value="{{$user_info['job']}}">
                             </label>
-                           
+
                             <br>
 
                             <label for="address">
@@ -104,20 +104,23 @@
                                     @foreach ($centres_interets_info as $centres_interets)
                                     <div class="ci">
                                         <br>
-                                        
+
                                             <div class="ciseul">
-                                        <label for="logoci">        
-                                                <input type="file" id="logoci" name="logoci" accept="image/png, image/jpeg" 
+                                        <label for="logoci">
+                                                <input type="file" id="logoci" name="logoci" accept="image/png, image/jpeg"
                                                 value="{{$centres_interets['logo']}}">
                                         </label>
-                                        <label for="altci">        
-                                                <input type="text" name="altci" placeholder="Descriptif" id="altci" 
+                                        <label for="altci">
+                                                <input type="text" name="altci" placeholder="Descriptif" id="altci"
                                                 value="{{$centres_interets['name']}}">
-                                         </label>       
+                                         </label>
                                             </div>
-                                        
+
                                     </div>
                                     @endforeach
+                                    <div id="ajout_ci"></div>
+
+                                    <a href="javascript:;" title="Ajouter un centre d'interet" class="ajout_ci" rel="info"> Ajouter un centre d'interet</a>
                                 </div>
 
                                <div class="contact">
@@ -125,23 +128,24 @@
                                 @foreach ($contact_info as $contact)
                                 <label for="logors">
                                         <input type="file" id="logors" name="rs" accept="image/png, image/jpeg" value="{{$contact['logo']}}">
-                                </label>  
+                                </label>
                                 <label for="linkrs">
                                         <input type="text" placeholder="lien réseau social" id="linkrs" value="{{$contact['url']}}">
-                                </label>    
+                                </label>
                                 <label for="altrs">
-                                        <input type="text" name="altalt" placeholder="Descriptif" id="altrs" value="{{$contact['name']}}"> 
-                                </label>        
+                                        <input type="text" name="altalt" placeholder="Descriptif" id="altrs" value="{{$contact['name']}}">
+                                </label>
                                 <br>
-                                
                                 @endforeach
-                            </div>   
+                                <div id="ajout_rs"></div>
+                                <a href="javascript:;"class="ajout_rs" rel="info"> Ajouter un reseau social</a>
+                            </div>
                             <br>
-                            <h2>Accroche</h2>     
-                            <label for="accroche">        
-                                                <input type="text" name="accroche"  id="accroche" placeholder="Descriptif" 
+                            <h2>Accroche</h2>
+                            <label for="accroche">
+                                                <input type="text" name="accroche"  id="accroche" placeholder="Descriptif"
                                                 value="{{$user_info['accroche']}}">
-                            </label>  
+                            </label>
                             <br>
                             <input type="submit" value="Mettre à jour vos informations">
                         </div>
@@ -153,5 +157,7 @@
         </div>
 </section>
 <script src="public/js/user.js"></script>
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="{{asset('js/centres_interets.js')}}"></script>
+<script src="{{asset('js/reseaux_sociaux.js')}}"></script>
 @endsection

@@ -17,7 +17,8 @@ class ExperiencesController extends Controller
     public function update(Request $request)
     {
         Experience::updateOrCreate(['id' => $request->get('id')],
-            [
+            [   
+                'user_id' => 1,
                 'id' => $request->get('id'),
                 'titre' => $request->get('poste'),
                 'societe' => $request->get('societe'),

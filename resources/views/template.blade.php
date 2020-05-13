@@ -27,6 +27,7 @@
                 <h2>Plan du site</h2>
                 <a href="admin">Administration</a>
                 <a href="/public/">Votre CV</a>
+                <a href="/public/logout">Deconnexion</a>
                 
                             </div>
             <div class="sn">

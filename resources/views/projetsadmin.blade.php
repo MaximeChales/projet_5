@@ -1,6 +1,6 @@
-@extends('template') 
-@section('title') 
-Administration Projets 
+@extends('template')
+@section('title')
+Administration Projets
 @endsection
 @section('content')
 <script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
@@ -8,7 +8,7 @@ Administration Projets
     <div class="administrationbandeau">
         <h1 class="textheaderadmin"> Administration</h1>
     </div>
-        
+
     <div class="contentadmin">
     <div class="mb" id="mb">
             <label id="responsive-nav" for="hamburger">
@@ -24,7 +24,7 @@ Administration Projets
                 <hr>
                 <a href="formations"> Gestion des Formations</a>
             </nav>
-    </div>              
+    </div>
         <div class="zonecentre">
             <section class="wrap">
             <h2>Gestion de vos projets</h2>
@@ -34,27 +34,39 @@ Administration Projets
                 {{csrf_field()}}
                     <label for="id">
                                   <input type="hidden" id="id" name="id[]" value="{{$projets['id']}}">
-                                </label> 
-                               
+                                </label>
+
                                <label for="slide">
                                        <input type="file" id="slide" name="slide[$i]" accept="image/png, image/jpeg" value="{{$projets['image']}}">
-                               </label>  
+                               </label>
                                <label for="linkprojets">
                                        <input type="text" name ="linkprojets[$i]" placeholder="Lien du projet" id="linkprojets" value="{{$projets['url']}}">
-                               </label>    
+                               </label>
                                <label for="titreprojet">
                                        <input type="text" name="titreprojet[$i]" placeholder="Descriptif" id="titreprojet" value="{{$projets['titre']}}">
-                               </label> 
-                              
+                               </label>
+
                     <br>
                     <input type="submit" value="Mettre à jour vos projets">
                     </form>
-                    </div> 
+                    </div>
                     @endforeach
+                    <div id="ajout_projet"></div>
+
+                     <a href="javascript:;" title="Ajouter un projets" class="ajout_projet" rel="info"> Ajouter un projet</a>
+
+           </div>
+
+
             </section>
             </div>
         </div>
 </section>
-<script src="public/js/projets.js"></script>
+<script>
+    var add_url = "{{ url('admin/projets') }}";
+    var token ='{{csrf_field()}}';
+</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="{{asset('js/projets.js')}}"></script>
 
 @endsection

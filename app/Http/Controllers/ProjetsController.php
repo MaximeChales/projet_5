@@ -30,42 +30,6 @@ class ProjetsController extends Controller
         }
 
     }
-
-    public function uploadForm()
-    {
-        return view('projetsadmin');
-    }
-    public function uploadSubmit(Request $request)
-    {
-        $this->validate($request, [
-            'image' => 'required',
-            'url' => 'required',
-            'titre' => 'required'
-        ]);
-        if ($request->hasFile('image')) {
-            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx'];
-            $files = $request->file('images');
-            foreach ($files as $file) {
-                $filename = $file->getClientOriginalName();
-                $extension = $file->getClientOriginalExtension();
-                $check = in_array($extension, $allowedfileExtension);
-                //dd($check);
-                if ($check) {
-                    $items = Item::create($request->all());
-                    foreach ($request->photos as $photo) {
-                        $filename = $photo->store('images');
-                        ItemDetail::create([
-                            'item_id' => $items->id,
-                            'filename' => $filename,
-                        ]);
-                    }
-                    echo "Upload Successfully";
-                } else {
-                    echo '<div class="alert alert-warning"><strong>Warning!</strong> Sorry Only Upload png , jpg , doc</div>';
-                }
-            }
-        }
-    }
   
 }
 
