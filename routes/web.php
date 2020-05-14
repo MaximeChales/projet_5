@@ -33,6 +33,13 @@ Route::post('/admin/user', [
     'as' => 'useradmin'
 ]);
 
+Route::post('upadate-avatar', [
+    'uses' =>'UserController@update_avatar',
+    'as' => 'useradmin'
+]);
+
+
+
 
 Route::get('/admin/projets', [
     'uses' =>'ProjetsController@index',
@@ -58,7 +65,7 @@ Route::post('/admin/experiences', [
     'as' => 'experiencesadmin'
 ]);
 
-Route::delete('/admin/experiences/delete/{id}', 
+Route::delete('/admin/experiences/delete/', 
 'ExperiencesController@delete');
 
 
@@ -78,6 +85,3 @@ Route::delete('/admin/formations/projets/delete/{id}',
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-

@@ -67,14 +67,14 @@ Administration - Experiences
                                </label>
                                <br>
 
-                            <a href="#" class="delete">Supprimer l'experience</a>            
-                              
+                               <a href="#" data-id="{{$experiences['id']}}" class="delete">Supprimer l'experience</a>
                      </div>
                     <input type="submit" value="Mettre à jour vos experiences">
                 </form>
                 </div>
              @endforeach 
              <div id="ajout_exp"></div>  
+             <br>
              <a href="javascript:;" title="Ajouter une formation" class="ajout" rel="info"> Ajouter une experience</a>
             </section>
             </div>
@@ -82,12 +82,13 @@ Administration - Experiences
 </section>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script>
+    
 $(".delete").click(function(){
-        var id = $(this).data("{{$experiences['id']}}");
-        var token = $(this).data("token");
+    var id = $(this).data("id");
+                                var token = document.querySelector('input[name=_token]').value   
         $.ajax(
         {
-            url: "experiences/delete/"+id,
+            url: "{{ url('/admin/experiences/delete') }}",
             type: 'delete',
             dataType: "JSON",
             data: {
@@ -98,9 +99,9 @@ $(".delete").click(function(){
             success: function ()
             {
                 alert("Suppression réussie");
-            }
+            }  
+
         });
-        alert("Suppression annulée");
     });
     </script>
 <script>

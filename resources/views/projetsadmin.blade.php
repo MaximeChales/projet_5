@@ -35,7 +35,6 @@ Administration Projets
                     <label for="id">
                                   <input type="hidden" id="id" name="id[]" value="{{$projets['id']}}">
                                 </label>
-
                                <label for="slide">
                                        <input type="file" id="slide" name="slide[$i]" accept="image/png, image/jpeg" value="{{$projets['image']}}">
                                </label>
@@ -52,12 +51,8 @@ Administration Projets
                     </div>
                     @endforeach
                     <div id="ajout_projet"></div>
-
                      <a href="javascript:;" title="Ajouter un projets" class="ajout_projet" rel="info"> Ajouter un projet</a>
-
            </div>
-
-
             </section>
             </div>
         </div>

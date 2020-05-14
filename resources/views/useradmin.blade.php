@@ -33,11 +33,17 @@
                         {{csrf_field()}}
                     <div class="wrap">
                         <div class="photo">
+                            <form action="upadate_avatar" method="POST" enctype="multipart/form-data">
                             <h2>Votre Photo</h2>
                             <br>
                             <label for="photo">
-                                <input type="file" id="photo" name="photo" accept="image/png, image/jpeg" value="{{$user_info['photo_profil']}}" >
+                                <input type="file" id="photo" name="photo" accept="image/png, image/jpeg" 
+                                value="{{$user_info['photo_profil']}}" >
                             </label>
+                            <br>
+                        <input type="submit" value="mettre à jour la photo">
+                            </form>
+
                         </div>
                         <h2>Vos Informations</h2>
                         <div class="presentation">
@@ -107,8 +113,8 @@
 
                                             <div class="ciseul">
                                         <label for="logoci">
-                                                <input type="file" id="logoci" name="logoci" accept="image/png, image/jpeg"
-                                                value="{{$centres_interets['logo']}}">
+                                                <input type="file" id="logoci" name="logoci" accept="image/png, image/jpeg" 
+                                                > value="{{$centres_interets['logo']}}">
                                         </label>
                                         <label for="altci">
                                                 <input type="text" name="altci" placeholder="Descriptif" id="altci"
