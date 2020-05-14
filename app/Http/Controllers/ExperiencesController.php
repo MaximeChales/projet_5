@@ -28,16 +28,10 @@ class ExperiencesController extends Controller
                 'descriptif' => $request->get('descriptif'),
                 
             ]);
-            
-            return redirect()->to('admin/experiences/'); 
     }
 
     public function destroy($id)
     {  
         Experience::destroy($id);
-
-        return response()->json([
-            'success' => 'Record has been deleted successfully!'
-        ]);
     }
 }

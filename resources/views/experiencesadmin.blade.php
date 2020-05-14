@@ -83,7 +83,7 @@ Administration - Experiences
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script>
 $(".delete").click(function(){
-        var id = $(this).data("{{$experiences['id   ']}}");
+        var id = $(this).data("{{$experiences['id']}}");
         var token = $(this).data("token");
         $.ajax(
         {
@@ -97,11 +97,10 @@ $(".delete").click(function(){
             },
             success: function ()
             {
-                console.log("it Work");
+                alert("Suppression réussie");
             }
         });
-
-        console.log("It failed");
+        alert("Suppression annulée");
     });
     </script>
 <script>

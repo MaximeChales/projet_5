@@ -23,7 +23,7 @@ class AdminController extends Controller
         return  view('indexadmin', compact('user_info','contact_info'));
     }
 
-
+/*si je supprime ce qui suit, il ne se passe rien à part pour la page projets pour laquel j'obtient un une erreur de page introuvable*/
     public function _index(UserRepository $user, ContactRepository $contact, CentresInteretsRepository $centres_interets,
     ProjetsRepository $projets,ExperiencesRepository $experiences, FormationsRepository $formations){
         $user_info = $user->getInfo(1);
@@ -36,5 +36,6 @@ class AdminController extends Controller
         return  view('indexadmin', compact('user_info','contact_info','centres_interets_info','projets_info',
         'experiences_info','formations_info'));
     }
+    
 }
 

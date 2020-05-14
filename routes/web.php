@@ -58,7 +58,7 @@ Route::post('/admin/experiences', [
     'as' => 'experiencesadmin'
 ]);
 
-Route::delete('/admin/experiences/{id}/delete', 
+Route::delete('/admin/experiences/delete/{id}', 
 'ExperiencesController@delete');
 
 
@@ -72,9 +72,12 @@ Route::post('/admin/formations', [
     'as' => 'formationsadmin'
 ]);
 
-Route::delete('/admin/formations/projets/{id}/delete', 
+Route::delete('/admin/formations/projets/delete/{id}', 
 'FormationsController@delete');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+

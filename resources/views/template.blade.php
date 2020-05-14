@@ -25,9 +25,9 @@
         <div class="seclign">
             <div class="plandusite">
                 <h2>Plan du site</h2>
-                <a href="admin">Administration</a>
-                <a href="/public/">Votre CV</a>
-                <a href="/public/logout">Deconnexion</a>
+                <a href="{{asset('/admin')}}">Administration</a>
+                <a href="{{asset('/')}}">Votre CV</a>
+                <a href="{{asset('/logout')}}">Deconnexion</a>
                 
                             </div>
             <div class="sn">
