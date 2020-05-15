@@ -32,7 +32,7 @@ Administration - Experiences
             <section class="wrap">
             <h2>Gestion de vos experiences</h2>
             @foreach ($experiences_info as $experiences)
-            <div class="experiences_individuelle">
+            <div class="experiences_individuelle" id="experience{{$experiences['id']}}">
             <form action="{{asset('admin/experiences')}}" method="POST">
                 {{csrf_field()}}
                     <div class='experiences'>
@@ -99,6 +99,8 @@ $(".delete").click(function(){
             success: function ()
             {
                 alert("Suppression réussie");
+                $('#experience' + {{$experiences['id']}}).hide();
+                
             }  
 
         });

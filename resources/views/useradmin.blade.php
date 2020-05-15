@@ -27,9 +27,8 @@
     </div>
         <div class="zonecentre">
             <section class="wrap">
-
                 <div class="section">
-                    <form action="{{ url('admin/user') }}" method="POST">
+                    <form action="{{ url('admin/user') }}" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}
                     <div class="wrap">
                         <div class="photo">
@@ -114,7 +113,7 @@
                                             <div class="ciseul">
                                         <label for="logoci">
                                                 <input type="file" id="logoci" name="logoci" accept="image/png, image/jpeg" 
-                                                > value="{{$centres_interets['logo']}}">
+                                               value="{{$centres_interets['logo']}}" >
                                         </label>
                                         <label for="altci">
                                                 <input type="text" name="altci" placeholder="Descriptif" id="altci"

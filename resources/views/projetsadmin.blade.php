@@ -29,7 +29,7 @@ Administration Projets
             <section class="wrap">
             <h2>Gestion de vos projets</h2>
              @foreach ($projets_info as $projets)
-             <div class='projet'>
+             <div class='projet' id="projets{{$projets['id']}}">
                 <form action="{{ url('admin/projets') }}" method="POST">
                 {{csrf_field()}}
                     <label for="id">
@@ -47,6 +47,8 @@ Administration Projets
 
                     <br>
                     <input type="submit" value="Mettre à jour vos projets">
+
+                    <a href="#" data-id="{{$projets['id']}}" class="delete">Supprimer le projet</a>
                     </form>
                     </div>
                     @endforeach
@@ -57,9 +59,8 @@ Administration Projets
             </div>
         </div>
 </section>
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script>
-    
 $(".delete").click(function(){
     var id = $(this).data("id");
                                 var token = document.querySelector('input[name=_token]').value   
@@ -76,6 +77,7 @@ $(".delete").click(function(){
             success: function ()
             {
                 alert("Suppression réussie");
+                $('#projets' + {{$projets['id']}}).hide();
             }  
 
         });
@@ -87,7 +89,7 @@ $(".delete").click(function(){
     var add_url = "{{ url('admin/projets') }}";
     var token ='{{csrf_field()}}';
 </script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
 <script src="{{asset('js/projets.js')}}"></script>
 
 @endsection

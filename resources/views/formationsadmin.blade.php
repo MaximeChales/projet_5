@@ -34,7 +34,7 @@ Administration - Formations
             <h2>Gestion de vos formations</h2>
         <div class='formations'>    
            @foreach ($formations_info as $formations)
-           <div class="formation_individuelle">  
+           <div class="formation_individuelle" id="formation{{$formations['id']}}">  
             <form action="{{ url('admin/formations/') }}" method="POST">
              
                 {{csrf_field()}}
@@ -103,6 +103,7 @@ $(".delete").click(function(){
             success: function ()
             {
                 alert("Suppression réussie");
+                $('#formation' + {{$formations['id']}}).hide();
             }  
 
         });

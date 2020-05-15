@@ -16,8 +16,8 @@
             <input type="checkbox" id="hamburger" />
             <nav class="navigation" id="nav">
                 <a href="#coordonnees" id="presentation">Présentation</a>
-                <a href="#parcours" id="formation">Formations & expériences professionnelles</a>
-                <a href="#me_contacter">Me contacter</a>
+                <a href="#formations" id="formation">Formations</a>
+                <a href="#experiences">Expériences professionnelles</a>
             </nav>
 </div>
         <div class="remonter"><a href="#mb"><img src="../public/img/fleche.png" alt="remonter"></a></div>
@@ -90,9 +90,8 @@
                         </a>
                     </div>
                     @endforeach
-                    <div id="parcours"></div>
                 </div>
-                <div class="experiences">
+                <div class="experiences" id="experiences">
                     <div class="minibandeaux">
                         <h2>Expériences professionnelles </h2>
                     </div>
@@ -114,7 +113,7 @@
             </div>
             <div class="formations">
                 <div class="minibandeaux">
-                    <h2>Formations</h2>
+                    <h2 id="formations">Formations</h2>
                 </div>
                 <br>
                 @foreach ($formations_info as $formations)
@@ -133,45 +132,6 @@
             </div>
             </div>
         </section>
-    <section class="section" id="me_contacter">
-        <div class="badeaucontact">
-            <h1>Me contacter</h1>
-        </div>
-        <div class="wrap2">
-            <form id="contact" method="post" action="https://mchales.alwaysdata.net/">
-                {{csrf_field()}}
-                <br><br>
-                <div id="txtcontact"> Si vous souhaitez me contacter, Je vous invite à utiliser le formulaire ci-après.
-                </div>
-                <div class="form">
-                    <br><br>
-                    <label for="name">Votre Nom
-                        <br>
-                        <input placeholder="Votre Nom" id="name" type="email">
-                    </label>
-                    <br><br>
-                    <label for="email">Votre adresse email
-                        <br>
-                        <input type="text" placeholder="Votre Email"  id="email">
-                    </label>
-                    <br><br>
-                    <label for="objet">Sujet du message
-                        <br>
-                        <input type="text" name="sujet" id="objet"
-                               placeholder="Sujet de votre message ">
-                    </label>
-                    <br><br>
-                    <label for="message">Votre message
-                        <br>
-                        <textarea cols="30" rows="5" placeholder="Votre message" id="message"></textarea>
-                    </label>
-                    <br><br>
-                    <input type="submit" id="submit">
-                </div>
-            </form>
-
-        </div>
-    </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="{{asset('js/slider.js')}}"></script>
     <script src="{{asset('js/scroll.js')}}"></script>

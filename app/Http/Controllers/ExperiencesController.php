@@ -10,6 +10,7 @@ class ExperiencesController extends Controller
 {
     public function index(ExperiencesRepository $experiences)
     {
+       // $user = Auth::user(); $id = Auth::id();
        $experiences_info = $experiences->getInfo(1);
         return  view('experiencesadmin', compact('experiences_info'));
     }
