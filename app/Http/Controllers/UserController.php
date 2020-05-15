@@ -16,6 +16,7 @@ class UserController extends Controller
 
     public function index(UserRepository $user, ContactRepository $contact, CentresInteretsRepository $centres_interets)
     {
+
         $user_info = $user->getInfo(1);
         $contact_info = $contact->getInfo(1);
         $centres_interets_info = $centres_interets->getInfo(1);

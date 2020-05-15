@@ -36,9 +36,14 @@ Administration - Experiences
             <form action="{{asset('admin/experiences')}}" method="POST">
                 {{csrf_field()}}
                     <div class='experiences'>
+                    
 
                                <label for="id">
                                        <input type="hidden" id="id" name="id" placeholder="id" value="{{$experiences['id']}}">
+                               </label>
+                               <br>
+                               <label for="user_id">
+                                       <input type="hidden" id="user_id" name="user_id" placeholder="id" value="{{$experiences['user_id']}}">
                                </label>
                                <br>
                                <label for="poste">
