@@ -33,18 +33,11 @@ class FormationsController extends Controller
     }
 
     public function delete(Request $request)
-    {
-
-        Formation::delete(['id' => $request->forceDelete()],
-            [
-                'id' => $request->get('id'),
-                'titre' => $request->get('formation'),
-                'ville' => $request->get('ville'),
-                'debut' => $request->get('debut'),
-                'fin' => $request->get('fin'),
-                'descriptif' => $request->get('descriptif')
-                
-            ]);
-            return redirect()->to('admin/formations/'); 
+    {   
+        $result = Formation::destroy($request->id);
+        return response()->json([
+            'success' => $result
+            
+        ]);
     }
 }

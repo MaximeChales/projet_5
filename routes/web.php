@@ -28,18 +28,11 @@ Route::get('/admin/user', [
     'as' => 'useradmin'
 ]);
 
-Route::post('/admin/user', [
-    'uses' =>'UserController@update',
-    'as' => 'useradmin'
-]);
 
 Route::post('upadate-avatar', [
     'uses' =>'UserController@update_avatar',
     'as' => 'useradmin'
 ]);
-
-
-
 
 Route::get('/admin/projets', [
     'uses' =>'ProjetsController@index',
@@ -51,7 +44,7 @@ Route::post('/admin/projets', [
     'as' => 'projetsadmin'
 ]);
 
-Route::delete('/admin/projets/{id}/delete', 
+Route::delete('/admin/projets/delete/', 
 'ProjetsController@delete');
 
 
@@ -79,7 +72,7 @@ Route::post('/admin/formations', [
     'as' => 'formationsadmin'
 ]);
 
-Route::delete('/admin/formations/projets/delete/{id}', 
+Route::delete('/admin/formations/delete/', 
 'FormationsController@delete');
 
 Auth::routes();

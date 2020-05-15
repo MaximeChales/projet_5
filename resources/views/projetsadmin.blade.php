@@ -57,6 +57,32 @@ Administration Projets
             </div>
         </div>
 </section>
+
+<script>
+    
+$(".delete").click(function(){
+    var id = $(this).data("id");
+                                var token = document.querySelector('input[name=_token]').value   
+        $.ajax(
+        {
+            url: "{{ url('/admin/projets/delete') }}",
+            type: 'delete',
+            dataType: "JSON",
+            data: {
+                "id": id,
+                "_method": 'DELETE',
+                "_token": token,
+            },
+            success: function ()
+            {
+                alert("Suppression réussie");
+            }  
+
+        });
+    });
+    </script>
+
+
 <script>
     var add_url = "{{ url('admin/projets') }}";
     var token ='{{csrf_field()}}';

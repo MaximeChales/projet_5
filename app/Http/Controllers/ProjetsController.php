@@ -30,6 +30,14 @@ class ProjetsController extends Controller
         }
 
     }
+    public function delete(Request $request)
+    {   
+        $result = Projet::destroy($request->id);
+        return response()->json([
+            'success' => $result
+            
+        ]);
+    }
   
 }
 

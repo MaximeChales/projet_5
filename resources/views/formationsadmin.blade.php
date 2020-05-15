@@ -67,9 +67,8 @@ Administration - Formations
                                </label>
                                <br>
                      
-                    <input type="submit" value="Mettre à jour vos formations">&nbsp;<a class="suppr" 
-                    href="{{asset('formations/delete')}}/{{$formations['id']}}">
-                    Supprimer la formation</a>
+                    <input type="submit" value="Mettre à jour vos formations">&nbsp;
+                    <a href="#" data-id="{{$formations['id']}}" class="delete">Supprimer la formation</a>
                    
                 </form>
                 </div>
@@ -85,12 +84,38 @@ Administration - Formations
             </div>
         </div>
 </section>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>
+$(".delete").click(function(){
+    var id = $(this).data("id");
+                                var token = document.querySelector('input[name=_token]').value   
+        $.ajax(
+        {
+            url: "{{ url('/admin/formations/delete') }}",
+            type: 'delete',
+            dataType: "JSON",
+            data: {
+                "id": id,
+                "_method": 'DELETE',
+                "_token": token,
+            },
+            success: function ()
+            {
+                alert("Suppression réussie");
+            }  
+
+        });
+    });
+    </script>
+
+
 <script>
     var add_url = "{{ url('admin/formations/') }}";
     var token ='{{csrf_field()}}';
 </script>
 <script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('js/tiny.js')}}"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
 <script src="{{asset('js/formations.js')}}"></script>
 @endsection

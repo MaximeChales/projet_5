@@ -28,6 +28,7 @@ class ExperiencesController extends Controller
                 'descriptif' => $request->get('descriptif'),
                 
             ]);
+            
             return redirect()->to('admin/experiences/'); 
     }
 

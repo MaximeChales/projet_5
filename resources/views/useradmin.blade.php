@@ -124,6 +124,7 @@
 
                                     </div>
                                     @endforeach
+                                    
                                     <div id="ajout_ci"></div>
 
                                     <a href="javascript:;" title="Ajouter un centre d'interet" class="ajout_ci" rel="info"> Ajouter un centre d'interet</a>
@@ -162,6 +163,7 @@
             </div>
         </div>
 </section>
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script src="{{asset('js/centres_interets.js')}}"></script>
 <script src="{{asset('js/reseaux_sociaux.js')}}"></script>
