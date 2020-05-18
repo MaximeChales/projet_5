@@ -13,9 +13,9 @@ class CentresInteretsRepository
 
     }
 
-    public function getInfo(){
+    public function getInfo($user_id){
 
-        return $this->centres_interets->orderBy('ordre')->get();
+        return $this->centres_interets->where('user_id','=',$user_id)->orderBy('ordre')->get();
         
         
     }

@@ -21,9 +21,10 @@ class ExperiencesController extends Controller
 
     public function update(Request $request)
     {
+        $user = auth()->user();
         Experience::updateOrCreate(['id' => $request->get('id')],
             [
-                'user_id' => $request->id,
+                'user_id' => $user->id,
                 'titre' => $request->get('poste'),
                 'societe' => $request->get('societe'),
                 'ville' => $request->get('ville'),

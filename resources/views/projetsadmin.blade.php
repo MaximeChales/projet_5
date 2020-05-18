@@ -28,30 +28,34 @@ Administration Projets
         <div class="zonecentre">
             <section class="wrap">
             <h2>Gestion de vos projets</h2>
+            <form action="{{ url('admin/projets') }}" method="POST" enctype="multipart/form-data">
+                {{csrf_field()}}
              @foreach ($projets_info as $projets)
              <div class='projet' id="projets{{$projets['id']}}">
-                <form action="{{ url('admin/projets') }}" method="POST">
-                {{csrf_field()}}
+
                     <label for="id">
                                   <input type="hidden" id="id" name="id[]" value="{{$projets['id']}}">
                                 </label>
                                <label for="slide">
-                                       <input type="file" id="slide" name="slide[$i]" accept="image/png, image/jpeg" value="{{$projets['image']}}">
+                                       <input type="file" id="slide" name="slide[]" accept="image/png, image/jpeg">
                                </label>
                                <label for="linkprojets">
-                                       <input type="text" name ="linkprojets[$i]" placeholder="Lien du projet" id="linkprojets" value="{{$projets['url']}}">
+                                       <input type="text" name ="linkprojets[]" placeholder="Lien du projet" id="linkprojets" value="{{$projets['url']}}">
                                </label>
                                <label for="titreprojet">
-                                       <input type="text" name="titreprojet[$i]" placeholder="Descriptif" id="titreprojet" value="{{$projets['titre']}}">
+                                       <input type="text" name="titreprojet[]" placeholder="Descriptif" id="titreprojet" value="{{$projets['titre']}}">
                                </label>
 
                     <br>
-                    <input type="submit" value="Mettre à jour vos projets">
+   
 
                     <a href="#" data-id="{{$projets['id']}}" class="delete">Supprimer le projet</a>
+                    @endforeach
+                    <input type="submit" value="Mettre à jour vos projets">
                     </form>
                     </div>
-                    @endforeach
+                    
+                                     
                     <div id="ajout_projet"></div>
                      <a href="javascript:;" title="Ajouter un projets" class="ajout_projet" rel="info"> Ajouter un projet</a>
            </div>

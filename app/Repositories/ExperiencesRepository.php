@@ -13,9 +13,9 @@ class ExperiencesRepository
 
     }
 
-    public function getInfo(){
+    public function getInfo($user_id){
 
-        return $this->experiences->get();
+        return $this->experiences->where('user_id','=',$user_id)->get();
         
         
     }

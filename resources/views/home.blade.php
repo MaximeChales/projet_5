@@ -16,8 +16,8 @@
             <input type="checkbox" id="hamburger" />
             <nav class="navigation" id="nav">
                 <a href="#coordonnees" id="presentation">Présentation</a>
-                <a href="#formations" id="formation">Formations</a>
                 <a href="#experiences">Expériences professionnelles</a>
+                <a href="#formations" id="formation">Formations</a>
             </nav>
 </div>
         <div class="remonter"><a href="#mb"><img src="../public/img/fleche.png" alt="remonter"></a></div>

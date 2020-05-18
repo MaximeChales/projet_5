@@ -25,11 +25,17 @@ class ProjetsController extends Controller
 
     public function update(Request $request)
     {
-            $count = count($request->get('slide'));
+        $user = auth()->user();
+        $files = $request->file('slide');
+        $count = count($request->get('titreprojet'));
+
         for($i = 0 ; $i < $count ; $i++) {
+            $filename = $files[$i]->getClientOriginalName();
+            $files[$i]->move(base_path().'/public/img',$filename);
             Projet::updateOrCreate(['id' => $request->get('id')[$i]],
                 [
-                    'image' => $request->get('slide')[$i],
+                    'user_id' => $user->id,
+                    'image' => '../public/img/'. $filename,
                     'url' => $request->get('linkprojets')[$i],
                     'titre' => $request->get('titreprojet')[$i]
                 ]);

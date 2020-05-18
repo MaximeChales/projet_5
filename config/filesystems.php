@@ -62,6 +62,22 @@ return [
             'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
+        
+        'sftp' => [
+    'driver' => 'sftp',
+    'host' => 'example.com',
+    'username' => 'your-username',
+    'password' => 'your-password',
+
+    // Settings for SSH key based authentication...
+    // 'privateKey' => '/path/to/privateKey',
+    // 'password' => 'encryption-password',
+
+    // Optional SFTP Settings...
+    // 'port' => 22,
+    // 'root' => '',
+    // 'timeout' => 30,
+],
 
     ],
 

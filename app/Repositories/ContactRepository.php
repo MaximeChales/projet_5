@@ -13,9 +13,9 @@ class ContactRepository
 
     }
 
-    public function getInfo(){
+    public function getInfo($user_id){
 
-        return $this->contact->get();
+        return $this->contact->where('user_id','=',$user_id)->get();
         
         
     }

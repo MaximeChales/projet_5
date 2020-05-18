@@ -7,7 +7,7 @@ use App\Repositories\CentresInteretsRepository;
 use App\Repositories\ContactRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
 
@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index(UserRepository $user, ContactRepository $contact, CentresInteretsRepository $centres_interets)
     {
 
@@ -28,26 +28,11 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-
-        function modifier_photo()
-        {
-
-            request()->validate([
-
-                'photo' => ['required', 'image'],
-            ]);
-
-            $path = request('photo')->store('images');
-            return $path;
-            exit;
-
-        }
-
-        //  $validated = $request->validate([       'nom'=>'required','prenom'=>'required']);
+        
+     
         User::updateOrCreate(['id' => $request->get('user_id')],
-
             [
-
+                'user_id' => $user->id,
                 'nom' => $request->get('nom'),
                 'prenom' => $request->get('prenom'),
                 'date_de_naissance' => $request->get('date_de_naissance'),
