@@ -32,11 +32,11 @@ Administration - Formations
         <div class="zonecentre">
             <section class="wrap">
             <h2>Gestion de vos formations</h2>
-        <div class='formations'>    
+        <div class='formations'>
            @foreach ($formations_info as $formations)
-           <div class="formation_individuelle" id="formation{{$formations['id']}}">  
+           <div class="formation_individuelle" id="formation{{$formations['id']}}">
             <form action="{{ url('admin/formations/') }}" method="POST">
-             
+
                 {{csrf_field()}}
 
                     <label for="id">
@@ -62,23 +62,23 @@ Administration - Formations
                                </label>
                                <br>
                                <label for="descriptif">
-                                       <textarea class="descriptif" name="descriptif" id="descriptif" cols="30" rows="10" 
+                                       <textarea class="descriptif" name="descriptif" id="descriptif" cols="30" rows="10"
                                        placeholder="Décrivez votre formation" >{{$formations['descriptif']}}</textarea>
                                </label>
                                <br>
-                     
+
                     <input type="submit" value="Mettre à jour vos formations">&nbsp;
                     <a href="#" data-id="{{$formations['id']}}" class="delete">Supprimer la formation</a>
-                   
+
                 </form>
                 </div>
                 @endforeach
                 <div id="ajout"></div>
-           </div> 
+           </div>
 
     <div id="ajoutArticle">
        <a href="javascript:;" title="Ajouter une formation" class="ajout" rel="info"> Ajouter une formation</a>
-    </div>    
+    </div>
 
             </section>
             </div>
@@ -89,7 +89,7 @@ Administration - Formations
 <script>
 $(".delete").click(function(){
     var id = $(this).data("id");
-                                var token = document.querySelector('input[name=_token]').value   
+                                var token = document.querySelector('input[name=_token]').value
         $.ajax(
         {
             url: "{{ url('/admin/formations/delete') }}",
@@ -104,7 +104,7 @@ $(".delete").click(function(){
             {
                 alert("Suppression réussie");
                 $('#formation' + {{$formations['id']}}).hide();
-            }  
+            }
 
         });
     });

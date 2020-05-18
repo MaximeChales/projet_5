@@ -36,7 +36,7 @@
                             <h2>Votre Photo</h2>
                             <br>
                             <label for="photo">
-                                <input type="file" id="photo" name="photo" accept="image/png, image/jpeg" 
+                                <input type="file" id="photo" name="photo" accept="image/png, image/jpeg"
                                 value="{{$user_info['photo_profil']}}" >
                             </label>
                             <br>
@@ -112,7 +112,7 @@
 
                                             <div class="ciseul">
                                         <label for="logoci">
-                                                <input type="file" id="logoci" name="logoci" accept="image/png, image/jpeg" 
+                                                <input type="file" id="logoci" name="logoci" accept="image/png, image/jpeg"
                                                value="{{$centres_interets['logo']}}" >
                                         </label>
                                         <label for="altci">
@@ -123,7 +123,7 @@
 
                                     </div>
                                     @endforeach
-                                    
+
                                     <div id="ajout_ci"></div>
 
                                     <a href="javascript:;" title="Ajouter un centre d'interet" class="ajout_ci" rel="info"> Ajouter un centre d'interet</a>

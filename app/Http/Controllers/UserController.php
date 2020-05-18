@@ -11,45 +11,38 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 
-
-
-
     public function index(UserRepository $user, ContactRepository $contact, CentresInteretsRepository $centres_interets)
     {
 
         $user_info = $user->getInfo(1);
         $contact_info = $contact->getInfo(1);
         $centres_interets_info = $centres_interets->getInfo(1);
-        
+
         return view('useradmin', compact('user_info', 'contact_info', 'centres_interets_info'));
     }
-
-
 
     public function update(Request $request)
     {
 
-
-        function modifier_photo(){
+        function modifier_photo()
+        {
 
             request()->validate([
 
-                'photo' =>['required','image']
+                'photo' => ['required', 'image'],
             ]);
 
-           $path =  request('photo')-> store('images'); 
-           return $path;
-           exit;
+            $path = request('photo')->store('images');
+            return $path;
+            exit;
 
         }
 
-
         //  $validated = $request->validate([       'nom'=>'required','prenom'=>'required']);
         User::updateOrCreate(['id' => $request->get('user_id')],
-       
+
             [
 
-                
                 'nom' => $request->get('nom'),
                 'prenom' => $request->get('prenom'),
                 'date_de_naissance' => $request->get('date_de_naissance'),

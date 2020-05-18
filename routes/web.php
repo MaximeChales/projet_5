@@ -10,70 +10,66 @@
 | contains the "web" middleware group. Now create something great!
 |
 
-*/
+ */
 
 Route::get('/', [
-    'uses' =>'HomeController@index',
-    'as' => 'home'
+    'uses' => 'HomeController@index',
+    'as' => 'home',
 ]);
 
-
 Route::get('/admin', [
-    'uses' =>'AdminController@index',
-    'as' => 'indexadmin'
+    'uses' => 'AdminController@index',
+    'as' => 'indexadmin',
 ]);
 
 Route::get('/admin/user', [
-    'uses' =>'UserController@index',
-    'as' => 'useradmin'
+    'uses' => 'UserController@index',
+    'as' => 'useradmin',
 ]);
 
-
 Route::post('upadate-avatar', [
-    'uses' =>'UserController@update_avatar',
-    'as' => 'useradmin'
+    'uses' => 'UserController@update_avatar',
+    'as' => 'useradmin',
 ]);
 
 Route::get('/admin/projets', [
-    'uses' =>'ProjetsController@index',
-    'as' => 'projetsadmin'
+    'uses' => 'ProjetsController@index',
+    'as' => 'projetsadmin',
 ]);
 
 Route::post('/admin/projets', [
-    'uses' =>'ProjetsController@update',
-    'as' => 'projetsadmin'
+    'uses' => 'ProjetsController@update',
+    'as' => 'projetsadmin',
 ]);
 
-Route::delete('/admin/projets/delete/', 
-'ProjetsController@delete');
-
+Route::delete('/admin/projets/delete/',
+    'ProjetsController@delete');
 
 Route::get('/admin/experiences', [
-    'uses' =>'ExperiencesController@index',
-    'as' => 'experiencesadmin'
+    'uses' => 'ExperiencesController@index',
+    'as' => 'experiencesadmin',
 ]);
 
 Route::post('/admin/experiences', [
-    'uses' =>'ExperiencesController@update',
-    'as' => 'experiencesadmin'
+    'uses' => 'ExperiencesController@update',
+    'as' => 'experiencesadmin',
 ]);
 
-Route::delete('/admin/experiences/delete/', 
-'ExperiencesController@delete');
-
+Route::delete('/admin/experiences/delete/',
+    'ExperiencesController@delete');
 
 Route::get('/admin/formations', [
-    'uses' =>'FormationsController@index',
-    'as' => 'formationsadmin'
+    'uses' => 'FormationsController@index',
+    'as' => 'formationsadmin',
 ]);
 
 Route::post('/admin/formations', [
-    'uses' =>'FormationsController@update',
-    'as' => 'formationsadmin'
+    'uses' => 'FormationsController@update',
+    'as' => 'formationsadmin',
 ]);
 
-Route::delete('/admin/formations/delete/', 
-'FormationsController@delete');
+Route::delete('/admin/formations/delete/',
+    'FormationsController@delete');
 
 Auth::routes();
 

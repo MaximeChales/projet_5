@@ -36,7 +36,7 @@ Administration - Experiences
             <form action="{{asset('admin/experiences')}}" method="POST">
                 {{csrf_field()}}
                     <div class='experiences'>
-                    
+
 
                                <label for="id">
                                        <input type="hidden" id="id" name="id" placeholder="id" value="{{$experiences['id']}}">
@@ -67,7 +67,7 @@ Administration - Experiences
                                </label>
                                <br>
                                <label for="descriptif">
-                                       <textarea class="descriptif" name="descriptif" id="descriptif" cols="30" rows="10" 
+                                       <textarea class="descriptif" name="descriptif" id="descriptif" cols="30" rows="10"
                                        placeholder="Décrivez votre experience" >{{$experiences['descriptif']}}</textarea>
                                </label>
                                <br>
@@ -77,8 +77,8 @@ Administration - Experiences
                     <input type="submit" value="Mettre à jour vos experiences">
                 </form>
                 </div>
-             @endforeach 
-             <div id="ajout_exp"></div>  
+             @endforeach
+             <div id="ajout_exp"></div>
              <br>
              <a href="javascript:;" title="Ajouter une formation" class="ajout" rel="info"> Ajouter une experience</a>
             </section>
@@ -87,10 +87,10 @@ Administration - Experiences
 </section>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script>
-    
+
 $(".delete").click(function(){
     var id = $(this).data("id");
-                                var token = document.querySelector('input[name=_token]').value   
+                                var token = document.querySelector('input[name=_token]').value
         $.ajax(
         {
             url: "{{ url('/admin/experiences/delete') }}",
@@ -105,8 +105,8 @@ $(".delete").click(function(){
             {
                 alert("Suppression réussie");
                 $('#experience' + {{$experiences['id']}}).hide();
-                
-            }  
+
+            }
 
         });
     });

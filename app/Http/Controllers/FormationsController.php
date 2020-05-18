@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Repositories\FormationsRepository;
 use App\Models\Formation;
+use App\Repositories\FormationsRepository;
+use Illuminate\Http\Request;
+
 class FormationsController extends Controller
 {
     public function index(FormationsRepository $formations)
     {
-       $formations_info = $formations->getInfo();
-        return  view('formationsadmin', compact('formations_info'));
+        $formations_info = $formations->getInfo();
+        return view('formationsadmin', compact('formations_info'));
     }
 
     public function update(Request $request)
@@ -25,19 +26,19 @@ class FormationsController extends Controller
                 'ville' => $request->get('ville'),
                 'debut' => $request->get('debut'),
                 'fin' => $request->get('fin'),
-                'descriptif' => $request->get('descriptif')
-                
+                'descriptif' => $request->get('descriptif'),
+
             ]);
-            return redirect()->to('admin/formations/'); 
+        return redirect()->to('admin/formations/');
 
     }
 
     public function delete(Request $request)
-    {   
+    {
         $result = Formation::destroy($request->id);
         return response()->json([
-            'success' => $result
-            
+            'success' => $result,
+
         ]);
     }
 }

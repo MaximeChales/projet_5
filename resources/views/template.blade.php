@@ -28,11 +28,13 @@
                 <a href="{{asset('/admin')}}">Administration</a>
                 <a href="{{asset('/')}}">Votre CV</a>
                 <a href="{{asset('/logout')}}">Deconnexion</a>
-                
+
                             </div>
             <div class="sn">
                 <h2>Réseaux sociaux:</h2>
                 <div class="logosrs">
+
+
                 </div>
             </div>
         </div>
