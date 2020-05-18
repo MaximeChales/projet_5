@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class FormationsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(FormationsRepository $formations)
     {
         $formations_info = $formations->getInfo();
