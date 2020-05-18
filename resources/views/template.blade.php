@@ -26,7 +26,7 @@
             <div class="plandusite">
                 <h2>Plan du site</h2>
                 <a href="{{asset('/admin')}}">Administration</a>
-                <a href="{{asset('/')}}">Votre CV</a>
+                <a href="{{asset('/')}}">CV</a>
                 <a href="{{asset('/logout')}}">Deconnexion</a>
 
                             </div>

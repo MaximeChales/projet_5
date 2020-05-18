@@ -72,5 +72,10 @@ Route::delete('/admin/formations/delete/',
     'FormationsController@delete');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+
+
+
+

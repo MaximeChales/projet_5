@@ -8,6 +8,8 @@ use App\Repositories\ExperiencesRepository;
 use App\Repositories\FormationsRepository;
 use App\Repositories\ProjetsRepository;
 use App\Repositories\UserRepository;
+use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
