@@ -4,12 +4,12 @@
             </label>
             <input type="checkbox" id="hamburger" />
             <nav class="navigation" id="nav">
-                <a href="profil" >Gestion de mes Informations</div></a>
+                <a href="{{ url('/admin/user') }}" >Gestion de mes Informations</a>
                 <hr>
-                <a href="projets">Gestion de mes Projets </a>
+                <a href="{{ url('/admin/projets') }}">Gestion de mes Projets </a>
                 <hr>
-                <a href="experiences"> Gestion des expériences</a>
+                <a href="{{ url('/admin/experiences') }}"> Gestion des expériences</a>
                 <hr>
-                <a href="formations"> Gestion des Formations</a>
+                <a href="{{ url('/admin/formations') }}"> Gestion des Formations</a>
             </nav>
     </div>

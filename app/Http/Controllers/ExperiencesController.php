@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ExperiencesController extends Controller
 {
+    //restreint l'accès à ceux qui sont connéctés
     public function __construct()
     {
         $this->middleware('auth');

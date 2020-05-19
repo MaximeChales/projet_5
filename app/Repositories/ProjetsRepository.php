@@ -13,10 +13,10 @@ class ProjetsRepository
 
     }
 
-    public function getInfo()
+    public function getInfo($user_id)
     {
 
-            return $this->projets->orderBy('ordre')->get();
+            return $this->projets->where('user_id','=',$user_id)->orderBy('ordre')->get();
         
     }
 

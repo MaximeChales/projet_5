@@ -27,11 +27,6 @@ Route::get('/admin/user', [
     'as' => 'useradmin',
 ]);
 
-Route::post('upadate-avatar', [
-    'uses' => 'UserController@update_avatar',
-    'as' => 'useradmin',
-]);
-
 Route::get('/admin/projets', [
     'uses' => 'ProjetsController@index',
     'as' => 'projetsadmin',

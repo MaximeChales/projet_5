@@ -13,9 +13,9 @@ class FormationsRepository
 
     }
 
-    public function getInfo(){
+    public function getInfo($user_id){
 
-        return $this->formations->get();
+        return $this->formations->where('user_id','=',$user_id)->get();
         
         
     }

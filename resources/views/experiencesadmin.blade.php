@@ -13,21 +13,7 @@ Administration - Experiences
     </div>
 
     <div class="contentadmin">
-    <div class="mb" id="mb">
-            <label id="responsive-nav" for="hamburger">
-                <i class="fas fa-bars fa-2x"></i>
-            </label>
-            <input type="checkbox" id="hamburger" />
-            <nav class="navigation" id="nav">
-                <a href="user" >Gestion de mes Informations</a>
-                <hr>
-                <a href="projets">Gestion de mes Projets </a>
-                <hr>
-                <a href="experiences"> Gestion des expériences</a>
-                <hr>
-                <a href="formations"> Gestion des Formations</a>
-            </nav>
-    </div>
+    @include('sidemenu')
         <div class="zonecentre">
             <section class="wrap">
             <h2>Gestion de vos experiences</h2>

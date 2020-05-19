@@ -17,21 +17,21 @@ class ProjetsController extends Controller
     public function index(ProjetsRepository $projets)
     {
 
-
-       $projets_info = $projets->getInfo(1);
+        $user = auth()->user();
+       $projets_info = $projets->getInfo($user->id);
         return  view('projetsadmin', compact('projets_info'));
         
     }
 
     public function update(Request $request)
     {
-        $user = auth()->user();
         $files = $request->file('slide');
         $count = count($request->get('titreprojet'));
 
         for($i = 0 ; $i < $count ; $i++) {
             $filename = $files[$i]->getClientOriginalName();
             $files[$i]->move(base_path().'/public/img',$filename);
+            $user = auth()->user();
             Projet::updateOrCreate(['id' => $request->get('id')[$i]],
                 [
                     'user_id' => $user->id,

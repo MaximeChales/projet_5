@@ -10,21 +10,7 @@ Administration Projets
     </div>
 
     <div class="contentadmin">
-    <div class="mb" id="mb">
-            <label id="responsive-nav" for="hamburger">
-                <i class="fas fa-bars fa-2x"></i>
-            </label>
-            <input type="checkbox" id="hamburger" />
-            <nav class="navigation" id="nav">
-                <a href="user" >Gestion de mes Informations</a>
-                <hr>
-                <a href="projets">Gestion de mes Projets </a>
-                <hr>
-                <a href="experiences"> Gestion des expériences</a>
-                <hr>
-                <a href="formations"> Gestion des Formations</a>
-            </nav>
-    </div>
+    @include('sidemenu')
         <div class="zonecentre">
             <section class="wrap">
             <h2>Gestion de vos projets</h2>
@@ -51,12 +37,13 @@ Administration Projets
 
                     <a href="#" data-id="{{$projets['id']}}" class="delete">Supprimer le projet</a>
                     @endforeach
+                    <div id="ajout_projet"></div>
                     <input type="submit" value="Mettre à jour vos projets">
                     </form>
                     </div>
                     
                                      
-                    <div id="ajout_projet"></div>
+                    
                      <a href="javascript:;" title="Ajouter un projets" class="ajout_projet" rel="info"> Ajouter un projet</a>
            </div>
             </section>

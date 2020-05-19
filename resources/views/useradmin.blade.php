@@ -10,39 +10,20 @@
         <h1 class="textheaderadmin"> Administration</h1></div>
 
     <div class="contentadmin">
-    <div class="mb" id="mb">
-            <label id="responsive-nav" for="hamburger">
-                <i class="fas fa-bars fa-2x"></i>
-            </label>
-            <input type="checkbox" id="hamburger" />
-            <nav class="navigation" id="nav">
-                <a href="user" ><div class="lien">Gestion de mes Informations</div></a>
-                <hr>
-                <a href="projets">Gestion de mes Projets </a>
-                <hr>
-                <a href="experiences"> Gestion des expériences</a>
-                <hr>
-                <a href="formations"> Gestion des Formations</a>
-            </nav>
-    </div>
+    @include('sidemenu')
         <div class="zonecentre">
             <section class="wrap">
                 <div class="section">
                     <form action="{{ url('admin/user') }}" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}
                     <div class="wrap">
-                        <div class="photo">
-                            <form action="upadate_avatar" method="POST" enctype="multipart/form-data">
-                            <h2>Votre Photo</h2>
+                        <div class="photo">                            <h2>Votre Photo</h2>
                             <br>
                             <label for="photo">
                                 <input type="file" id="photo" name="photo" accept="image/png, image/jpeg"
                                 value="{{$user_info['photo_profil']}}" >
                             </label>
                             <br>
-                        <input type="submit" value="mettre à jour la photo">
-                            </form>
-
                         </div>
                         <h2>Vos Informations</h2>
                         <div class="presentation">
@@ -133,13 +114,13 @@
                                 <h2>Vos reseaux sociaux</h2>
                                 @foreach ($contact_info as $contact)
                                 <label for="logors">
-                                        <input type="file" id="logors" name="rs" accept="image/png, image/jpeg" value="{{$contact['logo']}}">
+                                        <input type="file" id="logors" name="logors[]" accept="image/png, image/jpeg" value="{{$contact['logo']}}">
                                 </label>
                                 <label for="linkrs">
-                                        <input type="text" placeholder="lien réseau social" id="linkrs" value="{{$contact['url']}}">
+                                        <input type="text" placeholder="lien réseau social" name="linkrs[]" id="linkrs" value="{{$contact['url']}}">
                                 </label>
                                 <label for="altrs">
-                                        <input type="text" name="altalt" placeholder="Descriptif" id="altrs" value="{{$contact['name']}}">
+                                        <input type="text" name="altrs[]" placeholder="Descriptif" id="altrs" value="{{$contact['name']}}">
                                 </label>
                                 <br>
                                 @endforeach

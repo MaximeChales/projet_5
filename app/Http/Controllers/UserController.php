@@ -18,7 +18,6 @@ class UserController extends Controller
 
     public function index(UserRepository $user, ContactRepository $contact, CentresInteretsRepository $centres_interets)
     {
-
         $user_info = $user->getInfo(1);
         $contact_info = $contact->getInfo(1);
         $centres_interets_info = $centres_interets->getInfo(1);
@@ -28,8 +27,14 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
+        $files = $request->file('photo','logors','logoci');
+        $count = count($request->get('altrs','linkrs','altci','linkci'));
+
+        for ($i = 0; $i < $count; $i++) {
+            $filename = $files[$i]->getClientOriginalName();
+            $files[$i]->move(base_path() . '/public/img', $filename);
         
-     
+        }
         User::updateOrCreate(['id' => $request->get('user_id')],
             [
                 'user_id' => $user->id,
@@ -38,16 +43,16 @@ class UserController extends Controller
                 'date_de_naissance' => $request->get('date_de_naissance'),
                 'job' => $request->get('job'),
                 'adresse' => $request->get('address'),
-                'cp' => $request->get('code_postal'),
-                'town' => $request->get('ville'),
+                'code_postal' => $request->get('code_postal'),
+                'ville' => $request->get('ville'),
                 'telephone' => $request->get('phonenumber'),
                 'accroche' => $request->get('accroche'),
                 'email' => $request->get('email'),
                 'permis_b' => $request->get('permis'),
-                'photo_profil' => $request->get('photo'),
+                'photo_profil' => '../public/img/'. $filename,
                 'password' => $request->get('password'),
-                'logors' => $request->get('logo'),
-                'logoci' => $request->get('logo'),
+                'logo' => '../public/img/'. $filename,
+                'logo' => '../public/img/'. $filename,
                 'altci' => $request->get('name'),
             ]);
 
