@@ -31,8 +31,8 @@ class CentresInteret extends Model
 
 	protected $fillable = [
 		'user_id',
-		'name',
-		'logo',
+		'description_ci',
+		'logo_ci',
 		'ordre'
 	];
 }

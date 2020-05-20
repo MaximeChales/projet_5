@@ -41,7 +41,7 @@
                         <div class="rs">
                         @foreach ($contact_info as $contact)
 
-                        <a href="{{$contact['url']}}" target="blank"><img src="{{$contact['logo']}}" alt="réseau social"></a>
+                        <a href="{{$contact['url']}}" target="blank"><img src="{{$contact['logo_rs']}}" alt="{{$contact['description_rs']}}"></a>
                         @endforeach
                         </div>
                         <h3><a href="mailto:{{$user_info['email']}}" class="mail">{{$user_info['email']}}</a></h3>
@@ -55,7 +55,7 @@
                             <div class="ci">
                             @foreach ($centres_interets_info as $centres_interets)
 
-                            <img src="{{$centres_interets['logo']}}" alt="{{$centres_interets['name']}}">
+                            <img src="{{$centres_interets['logo_ci']}}" alt="{{$centres_interets['description_ci']}}">
 
                             @endforeach
                             </div>

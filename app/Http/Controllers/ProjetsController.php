@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\ProjetsRepository;
+use App\Repositories\ContactRepository;
 use App\Models\Projet;
 class ProjetsController extends Controller
 
@@ -14,12 +15,13 @@ class ProjetsController extends Controller
         $this->middleware('auth');
     }
  
-    public function index(ProjetsRepository $projets)
+    public function index(ProjetsRepository $projets,ContactRepository $contact)
     {
 
         $user = auth()->user();
        $projets_info = $projets->getInfo($user->id);
-        return  view('projetsadmin', compact('projets_info'));
+       $contact_info = $contact->getInfo($user->id);
+        return  view('projetsadmin', compact('projets_info','contact_info'));
         
     }
 

@@ -93,12 +93,11 @@
 
                                             <div class="ciseul">
                                         <label for="logoci">
-                                                <input type="file" id="logoci" name="logoci" accept="image/png, image/jpeg"
-                                               value="{{$centres_interets['logo']}}" >
+                                                <input type="file" id="logoci" name="logoci[]" accept="image/png, image/jpeg">
                                         </label>
                                         <label for="altci">
                                                 <input type="text" name="altci" placeholder="Descriptif" id="altci"
-                                                value="{{$centres_interets['name']}}">
+                                                value="{{$centres_interets['description_ci']}}">
                                          </label>
                                             </div>
 
@@ -114,13 +113,13 @@
                                 <h2>Vos reseaux sociaux</h2>
                                 @foreach ($contact_info as $contact)
                                 <label for="logors">
-                                        <input type="file" id="logors" name="logors[]" accept="image/png, image/jpeg" value="{{$contact['logo']}}">
+                                        <input type="file" id="logors" name="logors[]" accept="image/png, image/jpeg" >
                                 </label>
                                 <label for="linkrs">
                                         <input type="text" placeholder="lien réseau social" name="linkrs[]" id="linkrs" value="{{$contact['url']}}">
                                 </label>
                                 <label for="altrs">
-                                        <input type="text" name="altrs[]" placeholder="Descriptif" id="altrs" value="{{$contact['name']}}">
+                                        <input type="text" name="altrs[]" placeholder="Descriptif" id="altrs" value="{{$contact['description_rs']}}">
                                 </label>
                                 <br>
                                 @endforeach

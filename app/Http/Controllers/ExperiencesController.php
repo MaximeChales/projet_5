@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Experience;
 use App\Repositories\ExperiencesRepository;
+use App\Repositories\ContactRepository;
 use Illuminate\Http\Request;
 
 class ExperiencesController extends Controller
@@ -13,11 +14,12 @@ class ExperiencesController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index(ExperiencesRepository $experiences)
+    public function index(ExperiencesRepository $experiences, ContactRepository $contact)
     {
         $user = auth()->user();
         $experiences_info = $experiences->getInfo($user->id);
-        return view('experiencesadmin', compact('experiences_info'));
+        $contact_info = $contact->getInfo($user->id);
+        return view('experiencesadmin', compact('experiences_info','contact_info'));
     }
 
     public function update(Request $request)

@@ -32,8 +32,8 @@ class Contact extends Model
 
 	protected $fillable = [
 		'user_id',
-		'name',
-		'logo',
+		'description_rs',
+		'logo_rs',
 		'url',
 		'ordre'
 	];

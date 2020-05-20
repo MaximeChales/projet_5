@@ -14,6 +14,7 @@ class UserRepository
 
     public function getInfo($id){
 
+
         return $this->user->findOrFail($id);
         
         
