@@ -81,9 +81,10 @@
                    @foreach ($projets_info as $projets)
                     <div class="slide">
                        <a href="{{$projets['url']}}" target="blank">
-                            <img src="{{$projets['image']}}" alt="{{$projets['titre']}}">
+                            <img src="../public/img/{{$projets['image']}}" alt="{{$projets['titre']}}">
                             <br>
                             <div class="txtslider">
+
 
                             {{$projets['titre']}}
                             </div>

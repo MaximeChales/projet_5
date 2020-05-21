@@ -18,6 +18,7 @@ class UserController extends Controller
 
     public function index(UserRepository $user, ContactRepository $contact, CentresInteretsRepository $centres_interets)
     {
+        
         $auth = auth()->user();
         $user_info = $user->getInfo($auth->id);
         $contact_info = $contact->getInfo($auth->id);
@@ -27,17 +28,20 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-        $files = $request->file('photo_profil','logo_ci','logo_rs');
-        $count = count($request->get('altci','altrs','linkrs'));
+       
+        if ($request->hasFile('photo_profil','logo_rs','logo_ci')) {
+            $files = $request->file('photo_profil','logo_rs','logo_ci');
+            foreach ($files as $key => $file) {
+                $filename[$key] = $file->getClientOriginalName();
+                $file->move(base_path().'./public/img',$filename[$key]);
+            }
+        }
 
+        $user = auth()->user();
+        $count = count($request->get('alt_rs','alt_ci','linkrs'));
+        // On recupere les données de la BDD sans la variable $data
         for($i = 0 ; $i < $count ; $i++) {
-            $filename = $files[$i]->getClientOriginalName();
-            $files[$i]->move(base_path().'/public/img',$filename);
-            $user = auth()->user();}
-        
-     
-        User::updateOrCreate(['id' => $request->get('id')[$i]],
-            [
+            $data = [
 
                 'nom' => $request->get('nom'),
                 'prenom' => $request->get('prenom'),
@@ -56,9 +60,18 @@ class UserController extends Controller
                 'logo_ci' => '../public/img/'. $filename,
                 'description_ci' => $request->get('altci')[$i],
                 'description_rs' => $request->get('altrs')[$i],
-                'linkrs' => $request->get('linkrs')[$i],
-            ]);
+                'url' => $request->get('linkrs')[$i],
+            ];
 
-        return redirect()->to('admin/user/');
+            if(isset($filename[$i])){
+             $data['image'] = $filename[$i];
+            }
+            Projet::updateOrCreate(['id' => $request->get('id')[$i]], $data);
+        }
+            
+
+        return redirect()->to('admin/projets/');
     }
-}
+
+    }
+

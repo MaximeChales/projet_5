@@ -27,6 +27,11 @@ Route::get('/admin/user', [
     'as' => 'useradmin',
 ]);
 
+Route::post('/admin/user', [
+    'uses' => 'UserController@update',
+    'as' => 'useradmin',
+]);
+
 Route::get('/admin/projets', [
     'uses' => 'ProjetsController@index',
     'as' => 'projetsadmin',

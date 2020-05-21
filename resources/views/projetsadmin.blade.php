@@ -21,30 +21,35 @@ Administration Projets
 
                     <label for="id">
                                   <input type="hidden" id="id" name="id[]" value="{{$projets['id']}}">
-                                </label>
-                               <label for="slide">
+                    </label>
+
+                    <label for="slide">
                                        <input type="file" id="slide" name="slide[]" accept="image/png, image/jpeg">
-                               </label>
+                    </label>
                                <label for="linkprojets">
                                        <input type="text" name ="linkprojets[]" placeholder="Lien du projet" id="linkprojets" value="{{$projets['url']}}">
                                </label>
                                <label for="titreprojet">
                                        <input type="text" name="titreprojet[]" placeholder="Descriptif" id="titreprojet" value="{{$projets['titre']}}">
                                </label>
+                               <label for="ordre">
+                                       <input type="text" name="ordre[]" placeholder="ordre" id="ordre" value="{{$projets['ordre']}}">
+                               </label>
 
                     <br>
-   
-
                     <a href="#" data-id="{{$projets['id']}}" class="delete">Supprimer le projet</a>
+                </div>
                     @endforeach
                     <div id="ajout_projet"></div>
-                    <input type="submit" value="Mettre à jour vos projets">
-                    </form>
+                    <input type="submit" value="Mettre   à jour vos projets">
+                    
+                    <br>
+                   <a href="javascript:;" title="Ajouter un projets" class="ajout_projet" rel="info"> Ajouter un projet</a>
+                </form>
                     </div>
                     
                                      
                     
-                     <a href="javascript:;" title="Ajouter un projets" class="ajout_projet" rel="info"> Ajouter un projet</a>
            </div>
             </section>
             </div>
