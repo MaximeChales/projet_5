@@ -449,6 +449,10 @@ footer a {
 	margin: 20px 0 50px 0;
 }
 
+.id{
+	display: none;
+}
+
 /*Projets admin*/
 .projet{
 	margin: 20px 0 20px 0;

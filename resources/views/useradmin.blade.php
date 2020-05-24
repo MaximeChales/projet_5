@@ -20,7 +20,7 @@
                         <div class="photo">                            <h2>Votre Photo</h2>
                             <br>
                             <label for="photo">
-                                <input type="file" id="photo" name="photo[]" accept="image/png, image/jpeg"
+                                <input type="file" id="photo" name="photo" accept="image/png, image/jpeg"
                                 value="{{$user_info['photo_profil']}}" >
                             </label>
                             <br>
@@ -53,7 +53,7 @@
                             </label>
                             <br>
                             <label for="cp">
-                                <input type="text" placeholder="votre Code Postal" id="cp"value="{{$user_info['code_postal']}}">
+                                <input type="text" placeholder="votre Code Postal" id="cp" name="cp"  value="{{$user_info['code_postal']}}">
                             </label>
                             <br>
                             <label for="town">
@@ -93,10 +93,10 @@
 
                                             <div class="ciseul">
                                         <label for="logo_ci">
-                                                <input type="file" id="logo_ci" name="logo_ci[]" accept="image/png, image/jpeg">
+                                                <input type="file" id="logo_ci" name="logo_ci" accept="image/png, image/jpeg">
                                         </label>
                                         <label for="altci">
-                                                <input type="text" name="altci[]" placeholder="Descriptif" id="altci"
+                                                <input type="text" name="altci" placeholder="Descriptif" id="altci"
                                                 value="{{$centres_interets['description_ci']}}">
                                          </label>
                                             </div>

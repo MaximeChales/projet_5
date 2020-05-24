@@ -25,7 +25,7 @@
             <div class="wrap">
                 <div class="entete">
                     <div class="photo">
-                        <img src="{{$user_info['photo_profil']}}" alt="photo" class="photo">
+                        <img src="../public/img/{{$user_info['photo_profil']}}" alt="photo" class="photo">
                     </div>
                     <div class="presentation">
                         <h1>{{$user_info['nom']}} &nbsp;{{$user_info['prenom']}}
@@ -41,7 +41,7 @@
                         <div class="rs">
                         @foreach ($contact_info as $contact)
 
-                        <a href="{{$contact['url']}}" target="blank"><img src="{{$contact['logo_rs']}}" alt="{{$contact['description_rs']}}"></a>
+                        <a href="{{$contact['url']}}" target="blank"><img src="../public/img/{{$contact['logo_rs']}}" alt="{{$contact['description_rs']}}"></a>
                         @endforeach
                         </div>
                         <h3><a href="mailto:{{$user_info['email']}}" class="mail">{{$user_info['email']}}</a></h3>
@@ -55,7 +55,7 @@
                             <div class="ci">
                             @foreach ($centres_interets_info as $centres_interets)
 
-                            <img src="{{$centres_interets['logo_ci']}}" alt="{{$centres_interets['description_ci']}}">
+                            <img src="../public/img/{{$centres_interets['logo_ci']}}" alt="{{$centres_interets['description_ci']}}">
 
                             @endforeach
                             </div>
