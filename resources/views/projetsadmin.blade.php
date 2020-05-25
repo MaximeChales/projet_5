@@ -18,19 +18,19 @@ Administration Projets
                @foreach ($projets_info as $projets)
                <div class='projet' id="projets{{$projets['id']}}">
                   <label for="id" class="id" >
-                  <input type="text" id="id" name="id[]" value="{{$projets['id']}}" readonly>
+                  <input type="text"  name="id[]" value="{{$projets['id']}}" readonly>
                   </label>
                   <label for="slide">
-                  <input type="file" id="slide" name="slide[]" accept="image/png, image/jpeg">
+                  <input type="file"  name="slide[]" accept="image/png, image/jpeg">
                   </label>
                   <label for="linkprojets">
-                  <input type="text" name ="linkprojets[]" placeholder="Lien du projet" id="linkprojets" value="{{$projets['url']}}">
+                  <input type="text" name ="linkprojets[]" placeholder="Lien du projet" value="{{$projets['url']}}">
                   </label>
                   <label for="titreprojet">
-                  <input type="text" name="titreprojet[]" placeholder="Descriptif" id="titreprojet" value="{{$projets['titre']}}">
+                  <input type="text" name="titreprojet[]" placeholder="Descriptif"  value="{{$projets['titre']}}">
                   </label>
                   <label for="ordre">
-                  <input type="text" name="ordre[]" placeholder="ordre" id="ordre" value="{{$projets['ordre']}}">
+                  <input type="text" name="ordre[]" placeholder="ordre" value="{{$projets['ordre']}}">
                   </label>
                   <br>
                   <a href="#" data-id="{{$projets['id']}}" class="delete">Supprimer le projet</a>

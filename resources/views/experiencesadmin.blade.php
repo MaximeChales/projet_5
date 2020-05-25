@@ -25,42 +25,42 @@ Administration - Experiences
 
 
                                <label for="id" class="id">
-                                       <input type="text" id="id" name="id" placeholder="id" value="{{$experiences['id']}}" readonly>
+                                       <input type="text"  name="id" placeholder="id" value="{{$experiences['id']}}" readonly>
                                </label>
                                <br>
                                <label for="user_id">
-                                       <input type="hidden" id="user_id" name="user_id" placeholder="id" value="{{$experiences['user_id']}}">
+                                       <input type="hidden"  name="user_id" placeholder="id" value="{{$experiences['user_id']}}">
                                </label>
                                <br>
                                <label for="poste">
-                                       <input type="text" id="poste" name="poste" placeholder="Poste occupé" value="{{$experiences['titre']}}">
+                                       <input type="text"  name="poste" placeholder="Poste occupé" value="{{$experiences['titre']}}">
                                </label>
                                <br>
                                <label for="societe">
-                                       <input type="text" placeholder="Société"  name="societe" id="societe" value="{{$experiences['societe']}}">
+                                       <input type="text" placeholder="Société"  name="societe"  value="{{$experiences['societe']}}">
                                </label>
                                <label for="ville">
-                                       <input type="text" name="ville" placeholder="Ville" id="ville" value="{{$experiences['ville']}}">
+                                       <input type="text" name="ville" placeholder="Ville"  value="{{$experiences['ville']}}">
                                </label>
                                <br>
                                 De
                                <label for="debut">
-                                       <input type="date" name="debut" id="debut" value="{{$experiences['debut']->format('Y-m-d')}}">
+                                       <input type="date" name="debut"  value="{{$experiences['debut']->format('Y-m-d')}}">
                                </label>
                                à
                                <label for="fin">
-                                       <input type="date" name="fin" id="fin" value="{{$experiences['fin']->format('Y-m-d')}}">
+                                       <input type="date" name="fin"  value="{{$experiences['fin']->format('Y-m-d')}}">
                                </label>
                                <br>
                                <label for="descriptif">
-                                       <textarea class="descriptif" name="descriptif" id="descriptif" cols="30" rows="10"
+                                       <textarea class="descriptif" name="descriptif"  cols="30" rows="10"
                                        placeholder="Décrivez votre experience" >{{$experiences['descriptif']}}</textarea>
                                </label>
                                <br>
 
                                <a href="#" data-id="{{$experiences['id']}}" class="delete">Supprimer l'experience</a>
                      </div>
-                    <input type="submit" value="Mettre à jour vos experiences">
+                    <input type="submit" value="Mettre à jour l'experiences">
                 </form>
                 </div>
              @endforeach

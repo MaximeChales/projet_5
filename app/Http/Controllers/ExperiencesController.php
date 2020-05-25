@@ -45,7 +45,6 @@ class ExperiencesController extends Controller
         $result = Experience::destroy($request->id);
         return response()->json([
             'success' => $result,
-
         ]);
     }
 }

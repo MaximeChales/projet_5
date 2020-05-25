@@ -36,7 +36,9 @@ $('.ajout').on('click', function () {
                 ' </div>'
 
         $('#ajout_exp').append(html);
-        tinymce.init({
+       
+    });
+     tinymce.init({
           selector: '.descriptif',
           add_form_submit_trigger: true,
           height: 300,
@@ -55,5 +57,3 @@ $('.ajout').on('click', function () {
             '//www.tiny.cloud/css/codepen.min.css'
           ]
         });
-    });
-    

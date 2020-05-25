@@ -18,28 +18,28 @@ Administration - Formations
                   <form action="{{ url('admin/formations/') }}" method="POST">
                      {{csrf_field()}}
                      <label for="id" class="id">
-                     <input type="text" id="id" name="id" value="{{$formations['id']}}" readonly>
+                     <input type="text" name="id" value="{{$formations['id']}}" readonly>
                      </label>
                      <label for="formation">
-                     <input type="text" id="formation" name="formation" placeholder="Formation suivie"
+                     <input type="text" name="formation" placeholder="Formation suivie"
                         value="{{$formations['titre']}}">
                      </label>
                      <br>
                      <label for="societe">
-                     <input type="text" placeholder="Société" id="societe" name="societe" value="{{$formations['societe']}}">
+                     <input type="text" placeholder="Société" name="societe" value="{{$formations['societe']}}">
                      </label>
                      <br>
                      De
                      <label for="debut">
-                     <input type="date" name="debut" id="debut" value="{{$formations['debut']->format('Y-m-d')}}">
+                     <input type="date" name="debut"  value="{{$formations['debut']->format('Y-m-d')}}">
                      </label>
                      à
                      <label for="fin">
-                     <input type="date" name="fin" id="fin" value="{{$formations['fin']->format('Y-m-d')}}">
+                     <input type="date" name="fin" value="{{$formations['fin']->format('Y-m-d')}}">
                      </label>
                      <br>
                      <label for="descriptif">
-                     <textarea class="descriptif" name="descriptif" id="descriptif" cols="30" rows="10"
+                     <textarea class="descriptif" name="descriptif" cols="30" rows="10"
                         placeholder="Décrivez votre formation" >{{$formations['descriptif']}}</textarea>
                      </label>
                      <br>

@@ -20,7 +20,7 @@
                         <div class="photo">                            <h2>Votre Photo</h2>
                             <br>
                             <label for="photo">
-                                <input type="file" id="photo" name="photo" accept="image/png, image/jpeg"
+                                <input type="file"  name="photo" accept="image/png, image/jpeg"
                                 value="{{$user_info['photo_profil']}}" >
                             </label>
                             <br>
@@ -49,28 +49,28 @@
                             <br>
 
                             <label for="address">
-                                <input type="text" placeholder="votre adresse"  id="addess" name="address" value="{{$user_info['adresse']}}">
+                                <input type="text" placeholder="votre adresse"   name="address" value="{{$user_info['adresse']}}">
                             </label>
                             <br>
                             <label for="cp">
-                                <input type="text" placeholder="votre Code Postal" id="cp" name="cp"  value="{{$user_info['code_postal']}}">
+                                <input type="text" placeholder="votre Code Postal"  name="cp"  value="{{$user_info['code_postal']}}">
                             </label>
                             <br>
                             <label for="town">
-                                <input type="text" placeholder="votre ville" id="town" value="{{$user_info['ville']}}" name="town">
+                                <input type="text" placeholder="votre ville"  value="{{$user_info['ville']}}" name="town">
                             </label>
                             <br>
                             <label for="phonenumber">
-                                <input type="text" placeholder="votre numero de téléphone" name="phonenumber" id="phonenumber" value="{{$user_info['telephone']}}">
+                                <input type="text" placeholder="votre numero de téléphone" name="phonenumber"  value="{{$user_info['telephone']}}">
                             </label>
                             <br>
 
                             <label for="email">
-                                <input type="text" placeholder="votre numero adresse email" id="email" name="email" value="{{$user_info['email']}}">
+                                <input type="text" placeholder="votre numero adresse email" name="email" value="{{$user_info['email']}}">
                             </label>
 
                             <label for="password">
-                                <input type="text" placeholder="votre mot de passe" name="password" id="password"  value="{{$user_info['password']}}" readonly>
+                                <input type="text" placeholder="votre mot de passe" name="password"  value="{{$user_info['password']}}" readonly>
                             </label>
                             <br>
 
@@ -93,10 +93,10 @@
 
                                             <div class="ciseul">
                                         <label for="logo_ci">
-                                                <input type="file" id="logo_ci" name="logo_ci" accept="image/png, image/jpeg">
+                                                <input type="file"  name="logo_ci" accept="image/png, image/jpeg">
                                         </label>
                                         <label for="altci">
-                                                <input type="text" name="altci" placeholder="Descriptif" id="altci"
+                                                <input type="text" name="altci" placeholder="Descriptif"
                                                 value="{{$centres_interets['description_ci']}}">
                                          </label>
                                             </div>
@@ -113,13 +113,13 @@
                                 <h2>Vos reseaux sociaux</h2>
                                 @foreach ($contact_info as $contact)
                                 <label for="logo_rs">
-                                        <input type="file" id="logo_rs" name="logo_rs[]" accept="image/png, image/jpeg" >
+                                        <input type="file"  name="logo_rs[]" accept="image/png, image/jpeg" >
                                 </label>
                                 <label for="linkrs">
-                                        <input type="text" placeholder="lien réseau social" name="linkrs[]" id="linkrs" value="{{$contact['url']}}">
+                                        <input type="text" placeholder="lien réseau social" name="linkrs[]"  value="{{$contact['url']}}">
                                 </label>
                                 <label for="altrs">
-                                        <input type="text" name="altrs[]" placeholder="Descriptif" id="altrs" value="{{$contact['description_rs']}}">
+                                        <input type="text" name="altrs[]" placeholder="Descriptif"  value="{{$contact['description_rs']}}">
                                 </label>
                                 <br>
                                 @endforeach
@@ -129,7 +129,7 @@
                             <br>
                             <h2>Accroche</h2>
                             <label for="accroche">
-                                                <input type="text" name="accroche"  id="accroche" placeholder="Descriptif"
+                                                <input type="text" name="accroche"  placeholder="Descriptif"
                                                 value="{{$user_info['accroche']}}">
                             </label>
                             <br>
