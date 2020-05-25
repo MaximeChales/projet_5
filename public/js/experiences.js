@@ -26,7 +26,7 @@ $('.ajout').on('click', function () {
                 '  </label>' +
                 '   <br>' +
                 '   <label for="descriptif">' +
-                '         <textarea class="descriptif" name="descriptif" id="descriptif" cols="30" rows="10" ' +
+                '         <textarea class="descriptif" name="descriptif" cols="30" rows="10" ' +
                 '         placeholder="Décrivez votre formation" ></textarea>' +
                 '  </label>' +
                 '  <br>' +
@@ -36,9 +36,7 @@ $('.ajout').on('click', function () {
                 ' </div>'
 
         $('#ajout_exp').append(html);
-       
-    });
-     tinymce.init({
+        tinymce.init({
           selector: '.descriptif',
           add_form_submit_trigger: true,
           height: 300,
@@ -57,3 +55,5 @@ $('.ajout').on('click', function () {
             '//www.tiny.cloud/css/codepen.min.css'
           ]
         });
+    });
+    

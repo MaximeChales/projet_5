@@ -20,8 +20,7 @@
                         <div class="photo">                            <h2>Votre Photo</h2>
                             <br>
                             <label for="photo">
-                                <input type="file"  name="photo" accept="image/png, image/jpeg"
-                                value="{{$user_info['photo_profil']}}" >
+                                <input type="file"  name="photo_profil" accept="image/png, image/jpeg">
                             </label>
                             <br>
                         </div>
@@ -30,8 +29,6 @@
                             <label for="nom">
                                 <input type="text" placeholder="votre nom" name="nom" value="{{$user_info['nom']}}">
                             </label>
-
-                            <input type="hidden" name="user_id" value="{{$user_info['id']}}">
 
                             <label for="prenom">
                                 <input type="text" placeholder="votre prénom" name="prenom" value="{{$user_info['prenom']}}">
@@ -69,11 +66,6 @@
                                 <input type="text" placeholder="votre numero adresse email" name="email" value="{{$user_info['email']}}">
                             </label>
 
-                            <label for="password">
-                                <input type="text" placeholder="votre mot de passe" name="password"  value="{{$user_info['password']}}" readonly>
-                            </label>
-                            <br>
-
                             <div class="permis">
                                     <br> Permis obtenus
                                     <label for="permis">
@@ -93,10 +85,10 @@
 
                                             <div class="ciseul">
                                         <label for="logo_ci">
-                                                <input type="file"  name="logo_ci" accept="image/png, image/jpeg">
+                                                <input type="file"  name="logo_ci[]" accept="image/png, image/jpeg">
                                         </label>
                                         <label for="altci">
-                                                <input type="text" name="altci" placeholder="Descriptif"
+                                                <input type="text" name="altci[]" placeholder="Descriptif"
                                                 value="{{$centres_interets['description_ci']}}">
                                          </label>
                                             </div>
@@ -112,8 +104,11 @@
                                <div class="contact">
                                 <h2>Vos reseaux sociaux</h2>
                                 @foreach ($contact_info as $contact)
+
+                                        <input type="hidden"  name="id[]" value="{{$contact['id']}}" >
+
                                 <label for="logo_rs">
-                                        <input type="file"  name="logo_rs[]" accept="image/png, image/jpeg" >
+                                        <input type="file"  name="logors[]" accept="image/png, image/jpeg" >
                                 </label>
                                 <label for="linkrs">
                                         <input type="text" placeholder="lien réseau social" name="linkrs[]"  value="{{$contact['url']}}">

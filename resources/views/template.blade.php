@@ -33,6 +33,9 @@
             <div class="sn">
                 <h2>Réseaux sociaux:</h2>
                 <div class="logosrs">
+                @foreach ($contact_info as $contact)
+                <a href="{{$contact['url']}}" target="blank"><img src="{{asset('img/'.$contact['logo_rs'])}}" alt="{{$contact['description_rs']}}"></a>
+                @endforeach
 
 
                 </div>

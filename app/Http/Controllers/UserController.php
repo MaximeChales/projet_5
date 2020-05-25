@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Contact;
 use App\Repositories\CentresInteretsRepository;
 use App\Repositories\ContactRepository;
 use App\Repositories\UserRepository;
@@ -26,28 +27,25 @@ class UserController extends Controller
         return view('useradmin', compact('user_info', 'contact_info', 'centres_interets_info'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request,ContactRepository $contact)
     {
-
-        if ($request->hasFile('photo_profil')) {
-            $files = $request->file('photo_profil');
+        $auth = auth()->user();
+                if ($request->hasFile('photo_profil')) {
+            $file = $request->file('photo_profil');
           /*  dump($files);exit;*/
 
 
-                $filename = $files->getClientOriginalName();
-                $files->move(base_path() . './public/img', $filename);
+                $filename = $file->getClientOriginalName();
+                $file->move(base_path() . './public/img', $filename);
            
 
 
         }      
 
-       // $count = count($request->get('linkrs'));
 
         // On recupere les données de la BDD dans la variable $data
     //    for ($i = 0; $i < $count; $i++) {
             $data = [
-                
-                'photo_profil' => $request->get('photo_profil'),
                 'nom' => $request->get('nom'),
                 'prenom' => $request->get('prenom'),
                 'date_de_naissance' => $request->get('date_de_naissance'),
@@ -59,22 +57,42 @@ class UserController extends Controller
                 'accroche' => $request->get('accroche'),
                 'email' => $request->get('email'),
                 'permis_b' => $request->get('permis'),                
-                'password' => $request->get('password'),
-                'description_ci' => $request->get('altci'),
-                'description_rs' => $request->get('altrs'),
-                'url' => $request->get('linkrs'),
             ];
 
 
+
             if (isset($filename)) {
-                $data['image'] = $filename;
+                $data['photo_profil'] = $filename;
             }
 
-            User::updateOrCreate(['id' => $request->get('id')], $data);
+            User::updateOrCreate(['id' => $auth->id], $data);
             
    //     }
+        $count = count($request->get('linkrs'));
+                  /*  dump($request);exit;*/
 
-        return redirect()->to('admin/projets/');
+        if ($request->hasFile('logors')) {
+            $files = $request->file('logors');
+            foreach ($files as $key => $file) {
+                $filename[$key] = $file->getClientOriginalName();
+                $file->move(base_path().'./public/img',$filename[$key]);
+            }
+        }
+        for($i = 0 ; $i < $count ; $i++) {
+            $data = [
+                'user_id' => $auth->id,
+                'url' => $request->get('linkrs')[$i],
+                'description_rs' => $request->get('altrs')[$i],
+
+            ];
+
+            if(isset($filename[$i])){
+             $data['logo_rs'] = $filename[$i];
+            }
+            Contact::updateOrCreate(['id' => $request->get('id')[$i]], $data);
+        }
+
+        return redirect()->to('admin/user/');
     }
 
 }

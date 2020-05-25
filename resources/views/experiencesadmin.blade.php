@@ -53,7 +53,7 @@ Administration - Experiences
                                </label>
                                <br>
                                <label for="descriptif">
-                                       <textarea class="descriptif" name="descriptif"  cols="30" rows="10"
+                                       <textarea class="descriptif" name="descriptif" id="descriptif{{$experiences['id']}}"  cols="30" rows="10"
                                        placeholder="Décrivez votre experience" >{{$experiences['descriptif']}}</textarea>
                                </label>
                                <br>
@@ -98,8 +98,11 @@ $(".delete").click(function(){
     });
     </script>
 <script>
+
         var add_url = "{{ url('admin/experiences/') }}";
         var token ='{{csrf_field()}}';
+
+
 </script>
 <script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('js/tiny.js')}}"></script>

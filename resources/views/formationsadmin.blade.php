@@ -40,7 +40,7 @@ Administration - Formations
                      <br>
                      <label for="descriptif">
                      <textarea class="descriptif" name="descriptif" cols="30" rows="10"
-                        placeholder="Décrivez votre formation" >{{$formations['descriptif']}}</textarea>
+                        placeholder="Décrivez votre formation" id="descriptif{{$formations['id']}}">{{$formations['descriptif']}}</textarea>
                      </label>
                      <br>
                      <input type="submit" value="Mettre à jour la formation">&nbsp;
