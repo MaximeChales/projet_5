@@ -82,7 +82,6 @@
                                     @foreach ($centres_interets_info as $centres_interets)
                                     <div class="ci">
                                         <br>
-
                                             <div class="ciseul">
                                         <label for="logo_ci">
                                                 <input type="file"  name="logo_ci[]" accept="image/png, image/jpeg">

@@ -24,9 +24,7 @@ Administration - Experiences
                     <div class='experiences'>
 
 
-                               <label for="id" class="id">
                                        <input type="text"  name="id" placeholder="id" value="{{$experiences['id']}}" readonly>
-                               </label>
                                <br>
                                <label for="user_id">
                                        <input type="hidden"  name="user_id" placeholder="id" value="{{$experiences['user_id']}}">

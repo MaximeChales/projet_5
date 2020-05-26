@@ -17,9 +17,7 @@ Administration Projets
                {{csrf_field()}}
                @foreach ($projets_info as $projets)
                <div class='projet' id="projets{{$projets['id']}}">
-                  <label for="id" class="id" >
                   <input type="text"  name="id[]" value="{{$projets['id']}}" readonly>
-                  </label>
                   <label for="slide">
                   <input type="file"  name="slide[]" accept="image/png, image/jpeg">
                   </label>
