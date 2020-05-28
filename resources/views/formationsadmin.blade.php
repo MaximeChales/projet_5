@@ -73,7 +73,7 @@ Administration - Formations
                success: function ()
                {
                    alert("Suppression réussie");
-                   $('#formation' + {{$formations['id']}}).hide();
+                   document.location.reload(true);
                }
    
            });

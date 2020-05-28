@@ -30,6 +30,7 @@ $('.ajout').on('click', function () {
                 '         placeholder="Décrivez votre formation" ></textarea>' +
                 '  </label>' +
                 '  <br>' +
+
     
                 '  <input type="submit" value="Mettre à jour vos formations">' +
                 '  </form>' +

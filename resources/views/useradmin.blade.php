@@ -137,7 +137,7 @@
 <script src="{{asset('js/reseaux_sociaux.js')}}"></script>
 <script>
    $(".delete").click(function(){
-       var id = $(this).data("id");
+       var rs_id = $(this).data("id");
       var token = document.querySelector('input[name=_token]').value
            $.ajax(
            {
@@ -145,14 +145,14 @@
                type: 'delete',
                dataType: "JSON",
                data: {
-                   "id": id,
+                   "id": rs_id,
                    "_method": 'DELETE',
                    "_token": token,
                },
                success: function ()
                {
                    alert("Suppression réussie");
-                   $('#contact' + {{$contact['id']}}).hide();
+                   document.location.reload(true);
                }
            });
        });
@@ -175,7 +175,7 @@
                success: function ()
                {
                    alert("Suppression réussie");
-                   $('#centres_interets' + {{$centres_interets['id']}}).hide();
+                   document.location.reload(true);
                }
            });
        });

@@ -50,7 +50,7 @@ Administration - Experiences
                      <br>
                      <a href="#" data-id="{{$experiences['id']}}" class="delete">Supprimer l'experience</a>
                   </div>
-                  <input type="submit" value="Mettre à jour l'experiences">
+                  <input type="submit" value="Mettre à jour l'experience">
                </form>
             </div>
             @endforeach
@@ -79,7 +79,8 @@ Administration - Experiences
                success: function ()
                {
                    alert("Suppression réussie");
-                   $('#experience' + {{$experiences['id']}}).hide();
+                   document.location.reload(true);
+
    
                }
    

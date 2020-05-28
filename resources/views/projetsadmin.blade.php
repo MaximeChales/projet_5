@@ -61,7 +61,8 @@ Administration Projets
                success: function ()
                {
                    alert("Suppression réussie");
-                   $('#projets' + {{$projets['id']}}).hide();
+                   document.location.reload(true);
+
                }  
    
            });
