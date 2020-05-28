@@ -17,6 +17,7 @@ Route::get('/', [
     'as' => 'home',
 ]);
 
+
 Route::get('/admin', [
     'uses' => 'AdminController@index',
     'as' => 'indexadmin',
@@ -31,6 +32,15 @@ Route::post('/admin/user', [
     'uses' => 'UserController@update',
     'as' => 'useradmin',
 ]);
+
+
+Route::delete('/admin/centres_interets/delete_ci/',
+    'CentresInteretController@delete_ci');
+
+Route::delete('/admin/contact/delete/',
+    'ContactController@delete');
+
+    
 
 Route::get('/admin/projets', [
     'uses' => 'ProjetsController@index',
@@ -71,6 +81,10 @@ Route::post('/admin/formations', [
 Route::delete('/admin/formations/delete/',
     'FormationsController@delete');
 
-Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Auth::routes();
+
+

@@ -2,7 +2,7 @@ $('.ajout_ci').on('click', function () {
     html =
         ' <br> ' +
         ' <div class="ciseul">' +
-        '<input type="hidden"  name="id[]" value="0">'+
+        '<input type="hidden"  name="ci_id[]" value="0">'+
         ' <label for="logoci">    ' +
         '        <input type="file"  name="logo_ci[]" accept="image/png, image/jpeg" ' +
         '        value="">' +

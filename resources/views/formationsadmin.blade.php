@@ -17,9 +17,7 @@ Administration - Formations
                <div class="formation_individuelle" id="formation{{$formations['id']}}">
                   <form action="{{ url('admin/formations/') }}" method="POST">
                      {{csrf_field()}}
-                     <label for="id" class="id">
-                     <input type="text" name="id" value="{{$formations['id']}}" readonly>
-                     </label>
+                     <input type="hidden" name="id" value="{{$formations['id']}}">
                      <label for="formation">
                      <input type="text" name="formation" placeholder="Formation suivie"
                         value="{{$formations['titre']}}">

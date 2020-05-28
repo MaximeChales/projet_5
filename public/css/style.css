@@ -300,8 +300,16 @@ footer a {
 
 /*Partie admin*/
 
+.img-thumbnail, body {
+    background-color: whitesmoke;
+}
+
 .administrationbandeau {
 	background-color: silver;
+}
+
+#bouton_ajout{
+	margin-top: 20px;
 }
 
 .administrationbandeau h1 {

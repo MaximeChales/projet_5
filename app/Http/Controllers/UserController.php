@@ -55,8 +55,6 @@ class UserController extends Controller
         if (isset($filename)) {
             $data['photo_profil'] = $filename;
         }
-        /*  dump($request);exit;*/
-
         User::updateOrCreate(['id' => $auth->id], $data);
 
         //   gestion reseaux sociaux
@@ -104,7 +102,7 @@ class UserController extends Controller
             if (isset($filename_ci[$i])) {
                 $data['logo_ci'] = $filename_ci[$i];
             }
-            CentresInteret::updateOrCreate(['id' => $request->get('id')[$i]], $data);
+            CentresInteret::updateOrCreate(['id' => $request->get('ci_id')[$i]], $data);
         }
 
         return redirect()->to('admin/user/');

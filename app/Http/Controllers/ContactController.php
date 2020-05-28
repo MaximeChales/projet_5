@@ -16,5 +16,13 @@ class ContactController extends Controller
             $this->middleware('auth');
         }
 
+        public function delete(Request $request)
+        {
+            $result = Contact::destroy($request->rs_id);
+            return response()->json([
+                'success' => $result,
+            ]);
+        }
+
 }
 

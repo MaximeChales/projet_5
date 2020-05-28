@@ -16,5 +16,13 @@ class CentresInteretController extends Controller
             $this->middleware('auth');
         }
 
+        public function delete_ci(Request $request)
+        {
+            $result = CentresInteret::destroy($request->id);
+            return response()->json([
+                'success' => $result,
+            ]);
+        }
+
 }
 

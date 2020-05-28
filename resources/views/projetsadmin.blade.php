@@ -17,7 +17,7 @@ Administration Projets
                {{csrf_field()}}
                @foreach ($projets_info as $projets)
                <div class='projet' id="projets{{$projets['id']}}">
-                  <input type="text"  name="id[]" value="{{$projets['id']}}" readonly>
+                  <input type="hidden"  name="id[]" value="{{$projets['id']}}">
                   <label for="slide">
                   <input type="file"  name="slide[]" accept="image/png, image/jpeg">
                   </label>
@@ -35,20 +35,19 @@ Administration Projets
                </div>
                @endforeach
                <div id="ajout_projet"></div>
-               <input type="submit" value="Mettre   à jour les projets">
+               <input type="submit" value="Mettre à jour les projets">
                <br>
                <a href="javascript:;" title="Ajouter un projets" class="ajout_projet" rel="info"> Ajouter un projet</a>
             </form>
- 
-   </section>
+         </section>
       </div>
-   </div>  
+   </div>
 </section>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script>
    $(".delete").click(function(){
        var id = $(this).data("id");
-                                   var token = document.querySelector('input[name=_token]').value   
+       var token = document.querySelector('input[name=_token]').value   
            $.ajax(
            {
                url: "{{ url('/admin/projets/delete') }}",
