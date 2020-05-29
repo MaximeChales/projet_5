@@ -17,10 +17,10 @@ class ProjetsController extends Controller
 
     public function index(ProjetsRepository $projets, ContactRepository $contact)
     {
-        $user = auth()->user();
+        $auth = auth()->user();
 
-        $projets_info = $projets->getInfo($user->id);
-        $contact_info = $contact->getInfo($user->id);
+        $projets_info = $projets->getInfo($auth->id);
+        $contact_info = $contact->getInfo($auth->id);
 
 
         return view('projetsadmin', compact('projets_info', 'contact_info'));
@@ -41,12 +41,12 @@ class ProjetsController extends Controller
             }
         }
 
-        $user = auth()->user();
+        $auth = auth()->user();
         $count = count($request->get('titreprojet'));
         // On recupere les données de la BDD sans la variable $data
         for ($i = 0; $i < $count; $i++) {
             $data = [
-                'user_id' => $user->id,
+                'user_id' => $auth->id,
                 'url' => $request->get('linkprojets')[$i],
                 'titre' => $request->get('titreprojet')[$i],
                 'ordre' => $request->get('ordre')[$i],

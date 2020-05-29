@@ -15,18 +15,18 @@ class FormationsController extends Controller
     }
     public function index(FormationsRepository $formations,ContactRepository $contact)
     {
-        $user = auth()->user();
-        $formations_info = $formations->getInfo($user->id);
-        $contact_info = $contact->getInfo($user->id);
+        $auth = auth()->user();
+        $formations_info = $formations->getInfo($auth->id);
+        $contact_info = $contact->getInfo($auth->id);
         return view('formationsadmin', compact('formations_info','contact_info'));
     }
 
     public function update(Request $request)
     {
-        $user = auth()->user();
+        $auth = auth()->user();
         Formation::updateOrCreate(['id' => $request->get('id')],
             [
-                'user_id' => $user->id,
+                'user_id' => $auth->id,
                 'id' => $request->get('id'),
                 'titre' => $request->get('formation'),
                 'societe' => $request->get('societe'),
