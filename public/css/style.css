@@ -421,7 +421,7 @@ footer a {
 
 .zonecentre .experiences {
 	margin-bottom: 50px;
-	margin-top: 50px;
+	margin-top: 10px;
 }
 
 .zonecentre input[type=date] {
@@ -762,3 +762,17 @@ footer a {
 	.tox-tinymce {
 		width: 95%;
 	}
+	.logosrs img {
+
+		width: 30px;
+	}
+
+	footer {
+
+		color: white;
+	}
+	
+	footer a {
+		color: white;
+	}
+}

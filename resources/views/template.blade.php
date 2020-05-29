@@ -8,6 +8,7 @@
          rel="stylesheet">
       <meta charset="utf-8">
       <meta name="keywords" content="Mon site, maxime-chales, Développeur web,Maxime CHALES">
+      <meta name="description" content="Hello, bienvenue sur mon site CV. Vous y trouverez mes coordonées, mes projets et mon parcours professionnel.">
       <meta name="author" content="Maxime CHALES" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
@@ -18,7 +19,7 @@
       <footer class="blockfooter">
          <!--footer avec differents liens du site et les résaux sociaux de Jean Forteroche. -->
          <div class="wrap">
-            <div class="copyright"> Création du site par <a href="https://mchales.alwaysdata.net/" target="blank">©Maxime CHALES </a> - 2020. Tous droits réservés</div>
+            <div class="copyright"> Création du site par <a href="http://maximech.alwaysdata.net/" target="blank">©Maxime CHALES </a> - 2020. Tous droits réservés</div>
             <div class="seclign">
                <div class="plandusite">
                   <h2>Plan du site</h2>

@@ -36,7 +36,7 @@ Administration Projets
                @endforeach
                <div id="ajout_projet"></div>
                <input type="submit" value="Mettre à jour les projets">
-               <br>
+               &nbsp;
                <a href="javascript:;" title="Ajouter un projets" class="ajout_projet" rel="info"> Ajouter un projet</a>
             </form>
          </section>
