@@ -18,7 +18,7 @@ class ContactController extends Controller
 
         public function delete(Request $request)
         {
-            $result = Contact::destroy($request->rs_id);
+            $result = Contact::destroy($request->id);
             return response()->json([
                 'success' => $result,
             ]);

@@ -109,7 +109,7 @@
                            <input type="text" name="altrs[]" placeholder="Descriptif"  value="{{$contact['description_rs']}}">
                            </label>
 
-                            <a href="#" class="delete"><i class="far fa-trash-alt fa-1x"></i></a>
+                            <a href="#" class="delete" data-id="{{$contact['id']}}"><i class="far fa-trash-alt fa-1x" ></i></a>
 
                            </div>
                            @endforeach
