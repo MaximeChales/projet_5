@@ -19,31 +19,29 @@ Administration - Experiences
                   <div class='experiences'>
                      <input type="hidden"  name="id" value="{{$experiences['id']}}">
                      <br>
-                     <label for="user_id">
-                     <input type="hidden"  name="user_id" value="{{$experiences['user_id']}}">
+                     <input type="hidden"  name="user_id" value="{{$experiences['user_id']}}" >
+                     <br>
+                     <label for="poste{{$experiences['id']}}">
+                     <input type="text"  name="poste" placeholder="Poste occupé" value="{{$experiences['titre']}}" id="poste{{$experiences['id']}}">
                      </label>
                      <br>
-                     <label for="poste">
-                     <input type="text"  name="poste" placeholder="Poste occupé" value="{{$experiences['titre']}}">
+                     <label for="societe{{$experiences['id']}}">
+                     <input type="text" placeholder="Société"  name="societe"  value="{{$experiences['societe']}}" id="societe{{$experiences['id']}}">
                      </label>
-                     <br>
-                     <label for="societe">
-                     <input type="text" placeholder="Société"  name="societe"  value="{{$experiences['societe']}}">
-                     </label>
-                     <label for="ville">
-                     <input type="text" name="ville" placeholder="Ville"  value="{{$experiences['ville']}}">
+                     <label for="ville{{$experiences['id']}}">
+                     <input type="text" name="ville" placeholder="Ville"  value="{{$experiences['ville']}}" id="ville{{$experiences['id']}}">
                      </label>
                      <br>
                      De
-                     <label for="debut">
-                     <input type="date" name="debut"  value="{{$experiences['debut']->format('Y-m-d')}}">
+                     <label for="debut{{$experiences['id']}}">
+                     <input type="date" name="debut"  value="{{$experiences['debut']->format('Y-m-d')}}" id="debut{{$experiences['id']}}">
                      </label>
                      à
-                     <label for="fin">
-                     <input type="date" name="fin"  value="{{$experiences['fin']->format('Y-m-d')}}">
+                     <label for="fin{{$experiences['id']}}">
+                     <input type="date" name="fin"  value="{{$experiences['fin']->format('Y-m-d')}}" id="fin{{$experiences['id']}}">
                      </label>
                      <br>
-                     <label for="descriptif">
+                     <label for="descriptif{{$experiences['id']}}">
                      <textarea class="descriptif" name="descriptif" id="descriptif{{$experiences['id']}}"  cols="30" rows="10"
                         placeholder="Décrivez votre experience" >{{$experiences['descriptif']}}</textarea>
                      </label>
@@ -80,7 +78,7 @@ Administration - Experiences
                {
                    alert("Suppression réussie");
                    document.location.reload(true);
-
+   
    
                }
    

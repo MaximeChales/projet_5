@@ -14,29 +14,29 @@ Administration - Formations
             <h2>Gestion de vos formations</h2>
             <div class='formations'>
                @foreach ($formations_info as $formations)
-               <div class="formation_individuelle" id="formation{{$formations['id']}}">
+               <div class="formation_individuelle" >
                   <form action="{{ url('admin/formations/') }}" method="POST">
                      {{csrf_field()}}
                      <input type="hidden" name="id" value="{{$formations['id']}}">
-                     <label for="formation">
+                     <label for="formation{{$formations['id']}}">
                      <input type="text" name="formation" placeholder="Formation suivie"
-                        value="{{$formations['titre']}}">
+                        value="{{$formations['titre']}}" id="formation{{$formations['id']}}">
                      </label>
                      <br>
-                     <label for="societe">
-                     <input type="text" placeholder="Société" name="societe" value="{{$formations['societe']}}">
+                     <label for="societe{{$formations['id']}}">
+                     <input type="text" placeholder="Société" name="societe" value="{{$formations['societe']}}" id="societe{{$formations['id']}}">
                      </label>
                      <br>
                      De
-                     <label for="debut">
-                     <input type="date" name="debut"  value="{{$formations['debut']->format('Y-m-d')}}">
+                     <label for="debut{{$formations['id']}}">
+                     <input type="date" name="debut"  value="{{$formations['debut']->format('Y-m-d')}}" id="debut{{$formations['id']}}">
                      </label>
                      à
-                     <label for="fin">
-                     <input type="date" name="fin" value="{{$formations['fin']->format('Y-m-d')}}">
+                     <label for="fin{{$formations['id']}}">
+                     <input type="date" name="fin" value="{{$formations['fin']->format('Y-m-d')}}" id="fin{{$formations['id']}}">
                      </label>
                      <br>
-                     <label for="descriptif">
+                     <label for="descriptif{{$formations['id']}}">
                      <textarea class="descriptif" name="descriptif" cols="30" rows="10"
                         placeholder="Décrivez votre formation" id="descriptif{{$formations['id']}}">{{$formations['descriptif']}}</textarea>
                      </label>

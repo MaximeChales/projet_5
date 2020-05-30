@@ -18,17 +18,17 @@ Administration Projets
                @foreach ($projets_info as $projets)
                <div class='projet' id="projets{{$projets['id']}}">
                   <input type="hidden"  name="id[]" value="{{$projets['id']}}">
-                  <label for="slide">
-                  <input type="file"  name="slide[]" accept="image/png, image/jpeg">
+                  <label for="slide{{$projets['id']}}">
+                  <input type="file" id="slide{{$projets['id']}}" name="slide[]" accept="image/png, image/jpeg">
                   </label>
-                  <label for="linkprojets">
-                  <input type="text" name ="linkprojets[]" placeholder="Lien du projet" value="{{$projets['url']}}">
+                  <label for="linkprojets{{$projets['id']}}">
+                  <input type="text" id="linkprojets{{$projets['id']}}" name ="linkprojets[]" placeholder="Lien du projet" value="{{$projets['url']}}">
                   </label>
-                  <label for="titreprojet">
-                  <input type="text" name="titreprojet[]" placeholder="Descriptif"  value="{{$projets['titre']}}">
+                  <label for="titreprojet{{$projets['id']}}">
+                  <input type="text" id="titreprojet{{$projets['id']}}" name="titreprojet[]" placeholder="Descriptif"  value="{{$projets['titre']}}">
                   </label>
-                  <label for="ordre">
-                  <input type="text" name="ordre[]" placeholder="ordre" value="{{$projets['ordre']}}">
+                  <label for="ordre{{$projets['id']}}">
+                  <input type="text" id="ordre{{$projets['id']}}" name="ordre[]" placeholder="ordre" value="{{$projets['ordre']}}">
                   </label>
                   <br>
                   <a href="#" data-id="{{$projets['id']}}" class="delete">Supprimer le projet</a>
@@ -62,7 +62,7 @@ Administration Projets
                {
                    alert("Suppression réussie");
                    document.location.reload(true);
-
+   
                }  
    
            });
