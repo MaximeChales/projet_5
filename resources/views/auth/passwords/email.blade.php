@@ -17,7 +17,7 @@
                     <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
                         Cette fonction a été desactivée par l'administrateur
-
+                        
                     </form>
                 </div>
             </div>

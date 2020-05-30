@@ -25,7 +25,12 @@
                   <h2>Plan du site</h2>
                   <a href="{{asset('admin')}}">Administration</a>
                   <a href="{{asset('/')}}">CV</a>
+                 
+                  @if (auth()->check()) 
                   <a href="{{asset('/logout')}}">Deconnexion</a>
+                  @endif
+
+                  
                </div>
                <div class="sn">
                   <h2>Réseaux sociaux:</h2>
