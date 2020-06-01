@@ -30,6 +30,7 @@ class UserController extends Controller
 
     public function update(Request $request, ContactRepository $contact)
     {
+
         $auth = auth()->user();
         if ($request->hasFile('photo_profil')) {
             $file = $request->file('photo_profil');
@@ -37,6 +38,7 @@ class UserController extends Controller
             $filename = $file->getClientOriginalName();
             $file->move(base_path() . './public/img', $filename);
 
+            //On liste les differentes données de la BDD (à gauche) et on les associe aux champs du form en utilisant les names
         }
         $data = [
             'nom' => $request->get('nom'),
@@ -52,9 +54,27 @@ class UserController extends Controller
             'permis_b' => $request->get('permis'),
         ];
 
+        //Si $filename existe déja, alors en en fait la valeur par defaut de $data photo_profil
+
         if (isset($filename)) {
             $data['photo_profil'] = $filename;
         }
+
+        //On verifie que les inouts sont bien remplis et on ajoute d'autres conditions pour certains (email, int uniquement)
+
+        $this->validate($request, [
+            'nom' => 'required',
+            'prenom' => 'required',
+            'date_de_naissance' => 'required',
+            'job' => 'required',
+            'address' => 'required',
+            'cp' => 'required|integer',
+            'town' => 'required',
+            'phonenumber' => 'required',
+            'accroche' => 'required',
+            'email' => 'required|email',
+            'permis' => 'required',
+        ]);
         User::updateOrCreate(['id' => $auth->id], $data);
 
         //   gestion reseaux sociaux
@@ -75,10 +95,16 @@ class UserController extends Controller
                 'description_rs' => $request->get('altrs')[$i],
 
             ];
+            //Si $filename_rs existe déja, alors en en fait la valeur par defaut de $data logo_rs
 
             if (isset($filename_rs[$i])) {
                 $data['logo_rs'] = $filename_rs[$i];
             }
+
+            /*          $this->validate($request, [
+            'linkrs' => 'required',
+            'altrs' => 'required',
+            ]);*/
             Contact::updateOrCreate(['id' => $request->get('id')[$i]], $data);
         }
 
@@ -98,6 +124,8 @@ class UserController extends Controller
                 'user_id' => $auth->id,
                 'description_ci' => $request->get('altci')[$i],
             ];
+
+            //Si $filename_ci existe, alors en en fait la valeur par defaut de $data logo_ci
 
             if (isset($filename_ci[$i])) {
                 $data['logo_ci'] = $filename_ci[$i];

@@ -24,6 +24,15 @@ class FormationsController extends Controller
     public function update(Request $request)
     {
         $auth = auth()->user();
+
+        $this->validate($request, [
+            'formation' => 'required',               
+            'societe' => 'required',
+            'debut'=> 'required|date',
+            'fin' => 'required|date',
+            'descriptif'=> 'required',
+        ]);
+
         Formation::updateOrCreate(['id' => $request->get('id')],
             [
                 'user_id' => $auth->id,
