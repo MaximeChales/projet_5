@@ -56,14 +56,14 @@ Administration - Formations
                   
                </div>
                @endforeach
-               <input type="submit" value="Mettre à jour la formation">&nbsp;
-
+               <div id="ajoutArticle">
                <div id="ajout"></div>
+               <input type="submit" value="Mettre à jour la formation">
+               <br>
                </form>
-               
+                
             </div>
-            <div id="ajoutArticle">
-               <a href="javascript:;" title="Ajouter une formation" class="ajout" rel="info"> Ajouter une formation</a>
+               <a href="javascript:;" title="Ajouter une formation" class="ajout" id="ajoutformation" rel="info"> Ajouter une formation</a>
             </div>
          </section>
       </div>
@@ -93,10 +93,6 @@ Administration - Formations
            });
        });
 
-</script>
-<script>
-   var add_url = "{{ url('admin/formations/') }}";
-   var token ='{{csrf_field()}}';
 </script>
 <script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('js/tiny.js')}}"></script>

@@ -322,10 +322,13 @@ footer a {
 	list-style: none;
 	color: red;
 	}
-
 .photoadmin{
 	height: 250px;
-}	
+}
+
+#ajoutformation{
+	margin-top: 10px;
+}
 
 .logosadmin{
 	height: 50px;
