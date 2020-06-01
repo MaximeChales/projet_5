@@ -11,7 +11,7 @@ class UserRepository
 
         $this->user = $user;
     }
-
+    // id est le id de la table user
     public function getInfo($id){
 
 

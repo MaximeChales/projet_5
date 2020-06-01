@@ -8,8 +8,10 @@ body{
 	background-color: whitesmoke;
 }
 
+
 .section {
 	height: auto;
+	
 }
 
 .navigation {
@@ -311,6 +313,28 @@ footer a {
 #bouton_ajout{
 	margin-top: 20px;
 }
+
+.alert{
+	margin-bottom: 20px;	
+	}
+
+.alert li{
+	list-style: none;
+	color: red;
+	}
+
+.photoadmin{
+	height: 250px;
+}	
+
+.logosadmin{
+	height: 50px;
+}
+
+.projetsadmin{
+width: 35%;
+}
+
 
 .administrationbandeau h1 {
 	text-align: center;

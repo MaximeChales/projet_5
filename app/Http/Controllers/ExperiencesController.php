@@ -27,25 +27,28 @@ class ExperiencesController extends Controller
         $auth = auth()->user();
 
         $this->validate($request, [
-            'poste' => 'required',               
-            'societe' => 'required',
-            'ville' => 'required',   
-            'debut'=> 'required|date',
-            'fin' => 'required|date',
-            'descriptif'=> 'required',
+            'poste.*' => 'required',               
+            'societe.*' => 'required',
+            'ville.*' => 'required',   
+            'debut.*'=> 'required|date',
+            'fin.*' => 'required|date',
+            'descriptif.*'=> 'required',
         ]);
 
-        Experience::updateOrCreate(['id' => $request->get('id')],
+        $count = count($request->get('poste'));
+        for ($i = 0; $i < $count; $i++) {
+        Experience::updateOrCreate(['id' => $request->get('id')[$i]],
             [
                 'user_id' => $auth->id,
-                'titre' => $request->get('poste'),
-                'societe' => $request->get('societe'),
-                'ville' => $request->get('ville'),
-                'debut' => $request->get('debut'),
-                'fin' => $request->get('fin'),
-                'descriptif' => $request->get('descriptif'),
+                'titre' => $request->get('poste')[$i],
+                'societe' => $request->get('societe')[$i],
+                'ville' => $request->get('ville')[$i],
+                'debut' => $request->get('debut')[$i],
+                'fin' => $request->get('fin')[$i],
+                'descriptif' => $request->get('descriptif')[$i],
 
             ]);
+        }
 
         return redirect()->to('admin/experiences/');
     }

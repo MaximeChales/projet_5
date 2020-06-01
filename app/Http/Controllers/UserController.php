@@ -28,13 +28,12 @@ class UserController extends Controller
         return view('useradmin', compact('user_info', 'contact_info', 'centres_interets_info'));
     }
 
-    public function update(Request $request, ContactRepository $contact)
+    public function update(Request $request)
     {
 
         $auth = auth()->user();
         if ($request->hasFile('photo_profil')) {
             $file = $request->file('photo_profil');
-
             $filename = $file->getClientOriginalName();
             $file->move(base_path() . './public/img', $filename);
 
@@ -44,11 +43,11 @@ class UserController extends Controller
             'nom' => $request->get('nom'),
             'prenom' => $request->get('prenom'),
             'date_de_naissance' => $request->get('date_de_naissance'),
-            'job' => $request->get('job'),
-            'adresse' => $request->get('address'),
-            'code_postal' => $request->get('cp'),
-            'ville' => $request->get('town'),
-            'telephone' => $request->get('phonenumber'),
+            'job' => $request->get('emploi'),
+            'adresse' => $request->get('adresse'),
+            'code_postal' => $request->get('code_postal'),
+            'ville' => $request->get('ville'),
+            'telephone' => $request->get('telephone'),
             'accroche' => $request->get('accroche'),
             'email' => $request->get('email'),
             'permis_b' => $request->get('permis'),
@@ -65,15 +64,21 @@ class UserController extends Controller
         $this->validate($request, [
             'nom' => 'required',
             'prenom' => 'required',
-            'date_de_naissance' => 'required',
-            'job' => 'required',
-            'address' => 'required',
-            'cp' => 'required|integer',
-            'town' => 'required',
-            'phonenumber' => 'required',
+            'date_de_naissance' => 'required|date',
+            'emploi' => 'required',
+            'adresse' => 'required',
+            'code_postal' => 'required|integer',
+            'ville' => 'required',
+            'telephone' => 'required',
             'accroche' => 'required',
             'email' => 'required|email',
             'permis' => 'required',
+            'altrs' =>'required|array',
+            'altrs.*' =>'required',
+            'linkrs' =>'required|array',
+            'linkrs.*' =>'required',
+            'altci' =>'required|array',
+            'altci.*' =>'required',
         ]);
         User::updateOrCreate(['id' => $auth->id], $data);
 
@@ -100,11 +105,6 @@ class UserController extends Controller
             if (isset($filename_rs[$i])) {
                 $data['logo_rs'] = $filename_rs[$i];
             }
-
-            /*          $this->validate($request, [
-            'linkrs' => 'required',
-            'altrs' => 'required',
-            ]);*/
             Contact::updateOrCreate(['id' => $request->get('id')[$i]], $data);
         }
 

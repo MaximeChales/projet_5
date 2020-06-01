@@ -55,6 +55,13 @@ class ProjetsController extends Controller
             if (isset($filename[$i])) {
                 $data['image'] = $filename[$i];
             }
+            
+            $this->validate($request, [
+                'linkprojets.*' => 'required',
+                'titreprojet.*'=> 'required',
+                'ordre.*' => 'required|integer',
+                ]);
+            
             Projet::updateOrCreate(['id' => $request->get('id')[$i]], $data);
         }
 

@@ -19,7 +19,7 @@
    <div class="wrap">
       <div class="entete">
          <div class="photo">
-            <img src="../public/img/{{$user_info['photo_profil']}}" alt="photo" class="photo">
+            <img src="{{asset('img/'.$user_info['photo_profil'])}}" alt="photo" class="photo">
          </div>
          <div class="presentation">
             <h1>{{$user_info['nom']}} &nbsp;{{$user_info['prenom']}}
@@ -28,12 +28,12 @@
             </h1>
             <br>
             <h2>{{$user_info['adresse']}} </h2>
-            <h2>{{$user_info['codepostal']}}&nbsp;{{$user_info['ville']}}</h2>
+            <h2>{{$user_info['ville']}}</h2>
             <h2 class="tel">{{$user_info['telephone']}}</h2>
             <br>
             <div class="rs">
                @foreach ($contact_info as $contact)
-               <a href="{{$contact['url']}}" target="blank"><img src="../public/img/{{$contact['logo_rs']}}" alt="{{$contact['description_rs']}}"></a>
+               <a href="{{$contact['url']}}" target="blank"><img src="{{asset('img/'.$contact['logo_rs'])}}" alt="{{$contact['description_rs']}}"></a>
                @endforeach
             </div>
             <h3><a href="mailto:{{$user_info['email']}}" class="mail">{{$user_info['email']}}</a></h3>
@@ -46,7 +46,7 @@
                <h3> Mes centres d’intérêts&nbsp;:</h3>
                <div class="ci">
                   @foreach ($centres_interets_info as $centres_interets)
-                  <img src="../public/img/{{$centres_interets['logo_ci']}}" alt="{{$centres_interets['description_ci']}}">
+                  <img src="{{asset('img/'.$centres_interets['logo_ci'])}}" alt="{{$centres_interets['description_ci']}}">
                   @endforeach
                </div>
             </div>
@@ -68,7 +68,7 @@
          @foreach ($projets_info as $projets)
          <div class="slide">
             <a href="{{$projets['url']}}" target="blank">
-               <img src="../public/img/{{$projets['image']}}" alt="{{$projets['titre']}}">
+               <img src="{{asset('img/'.$projets['image'])}}" alt="{{$projets['titre']}}">
                <br>
                <div class="txtslider">
                   {{$projets['titre']}}

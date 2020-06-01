@@ -14,10 +14,23 @@ Administration Projets
          <section class="wrap">
             <h2>Gestion de vos projets</h2>
             <form action="{{ url('admin/projets') }}" method="POST" enctype="multipart/form-data">
+            @if ($errors->any())
+                  <div class="alert alert-danger">
+                     <br>
+                     <ul>
+                           @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                           @endforeach
+                     </ul>
+                  </div>
+                  @endif
                {{csrf_field()}}
+               
                @foreach ($projets_info as $projets)
                <div class='projet' id="projets{{$projets['id']}}">
                   <input type="hidden"  name="id[]" value="{{$projets['id']}}">
+                  <img src="{{asset('img/'.$projets['image'])}}" alt="{{$projets['titre']}}" class="projetsadmin">
+                  <br>
                   <label for="slide{{$projets['id']}}">
                   <input type="file" id="slide{{$projets['id']}}" name="slide[]" accept="image/png, image/jpeg">
                   </label>

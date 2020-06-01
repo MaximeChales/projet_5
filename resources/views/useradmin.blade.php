@@ -14,10 +14,22 @@
                <form action="{{ url('admin/user') }}" method="POST" enctype="multipart/form-data">
                   {{csrf_field()}}
                   <div class="wrap">
+                  
+                  @if ($errors->any())
+                  <div class="alert alert-danger">
+                     <ul>
+                           @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                           @endforeach
+                     </ul>
+                  </div>
+                  @endif
+
                      <div class="photo">
                         <h2>Votre Photo</h2>
                         <br>
                         <label for="photo">
+                        <img src="{{asset('img/'.$user_info['photo_profil'])}}" alt="photo" class="photo photoadmin">
                         <input type="file"  name="photo_profil" id="photo" accept="image/png, image/jpeg">
                         </label>
                         <br>
@@ -37,23 +49,23 @@
                         </label>
                         <br>
                         <label for="job">
-                        <input type="text" placeholder="votre emploi" name="job" value="{{$user_info['job']}}" id="job">
+                        <input type="text" placeholder="votre emploi" name="emploi" value="{{$user_info['job']}}" id="job">
                         </label>
                         <br>
-                        <label for="address">
-                        <input type="text" placeholder="votre adresse"   name="address" value="{{$user_info['adresse']}}" id="address">
+                        <label for="adresse">
+                        <input type="text" placeholder="votre adresse"   name="adresse" value="{{$user_info['adresse']}}" id="address">
                         </label>
                         <br>
-                        <label for="cp">
-                        <input type="text" placeholder="votre Code Postal"  name="cp"  value="{{$user_info['code_postal']}}" id="cp">
+                        <label for="code_postal">
+                        <input type="text" placeholder="votre Code Postal"  name="code_postal"  value="{{$user_info['code_postal']}}" id="cp">
                         </label>
                         <br>
-                        <label for="town">
-                        <input type="text" placeholder="votre ville"  value="{{$user_info['ville']}}" name="town" id="town">
+                        <label for="ville">
+                        <input type="text" placeholder="votre ville"  value="{{$user_info['ville']}}" name="ville" id="town">
                         </label>
                         <br>
-                        <label for="phonenumber">
-                        <input type="text" placeholder="votre numero de téléphone" name="phonenumber"  value="{{$user_info['telephone']}}" id="phonenumber">
+                        <label for="telephone">
+                        <input type="text" placeholder="votre numero de téléphone" name="telephone"  value="{{$user_info['telephone']}}" id="phonenumber">
                         </label>
                         <br>
                         <label for="email">
@@ -74,6 +86,8 @@
                               <br>
                               <div class="ciseul"  >
                                  <input type="hidden"  name="ci_id[]" value="{{$centres_interets['id']}}" >
+                                 <img src="{{asset('img/'.$centres_interets['logo_ci'])}}" alt="{{$centres_interets['description_ci']}}" class="logosadmin">
+                                 <br>
                                  <label for="logo_ci{{$centres_interets['id']}}">
                                  <input type="file"  name="logo_ci[]" accept="image/png, image/jpeg" id="logo_ci{{$centres_interets['id']}}">
                                  </label>
@@ -96,6 +110,9 @@
                            <div class="rscontent" id="contact{{$contact['id']}}">
                               <input type="hidden"  name="id[]" value="{{$contact['id']}}" >
                               <label for="logo_rs{{$contact['id']}}">
+                              <br>
+                              <img src="{{asset('img/'.$contact['logo_rs'])}}" alt="{{$contact['description_rs']}}" class="logosadmin">
+                              <br>
                               <input type="file"  name="logors[]" accept="image/png, image/jpeg" id="logo_rs{{$contact['id']}}">
                               </label>
                               <label for="linkrs{{$contact['id']}}">
@@ -131,7 +148,7 @@
 <script src="{{asset('js/reseaux_sociaux.js')}}"></script>
 <script>
    $(".delete").click(function(){
-       var rs_id = $(this).data("id");
+      var rs_id = $(this).data("id");
       var token = document.querySelector('input[name=_token]').value
            $.ajax(
            {
