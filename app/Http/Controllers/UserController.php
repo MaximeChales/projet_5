@@ -101,7 +101,7 @@ class UserController extends Controller
 
             /*On verifie que les images des reseaux sociaux sont biens remplis, auquel cas on retourne la vue useradmin
             avec une erreur*/
-            if (!isset($filename_rs[$i]) && empty($request->get('id')[$i])) {
+            if (!isset($filename_rs[$i]) && empty($request->get('ci_id')[$i])) {
 
                 $auth = auth()->user();
                 $user_info = $user->getInfo($auth->id);
@@ -109,7 +109,7 @@ class UserController extends Controller
                 $centres_interets_info = $centres_interets->getInfo($auth->id);
 
                 return view('useradmin', compact('user_info', 'contact_info', 'centres_interets_info'))->
-                    withErrors(["empty_filename_error" => "Vous devez ajouter une image à vos nouveaux reseaux sociaux avant de valider"]);
+                withErrors(["empty_filename_error" => "Vous devez ajouter une image à vos nouveaux reseaux sociaux avant de valider"]);
             }
 
             //Si $filename_rs existe déja, alors en en fait la valeur par defaut de $data logo_rs
@@ -146,7 +146,7 @@ class UserController extends Controller
                 $centres_interets_info = $centres_interets->getInfo($auth->id);
 
                 return view('useradmin', compact('user_info', 'contact_info', 'centres_interets_info'))->
-                    withErrors(["empty_filename_error" => "Vous devez ajouter une image à vos nouveaux centres d'interets avant de valider"]);
+                withErrors(["empty_filename_error" => "Vous devez ajouter une image à vos nouveaux centres d'interets avant de valider"]);
             }
 
             //Si $filename_ci existe, alors en en fait la valeur par defaut de $data logo_ci

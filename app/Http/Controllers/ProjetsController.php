@@ -60,7 +60,7 @@ class ProjetsController extends Controller
                 $projets_info = $projets->getInfo($auth->id);
                 $contact_info = $contact->getInfo($auth->id);
                 return view('projetsadmin', compact('projets_info', 'contact_info'))->
-                withErrors(["empty_filename_error" => "Vous devez ajouter une image au projet avant de valider"]);
+                withErrors(["empty_filename_error" => "Vous devez ajouter une image aux nouveaux projets avant de valider"]);
             }
 
             if (isset($filename[$i])) {
