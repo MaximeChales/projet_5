@@ -30,7 +30,7 @@ class ProjetsController extends Controller
      * Mise à jour des projets
      * @param Request $request
      */
-    public function update(Request $request)
+    public function update(Request $request,ProjetsRepository $projets, ContactRepository $contact)
     {
 
         if ($request->hasFile('slide')) {
@@ -51,8 +51,18 @@ class ProjetsController extends Controller
                 'titre' => $request->get('titreprojet')[$i],
                 'ordre' => $request->get('ordre')[$i],
             ];
-    
-            
+
+             /*On verifie que les images des reseaux sociaux sont biens remplis, auquel cas on retourne la vue useradmin
+            avec une erreur*/
+            if (!isset($filename[$i]) && empty($request->get('id')[$i])) {
+
+                $auth = auth()->user();
+                $projets_info = $projets->getInfo($auth->id);
+                $contact_info = $contact->getInfo($auth->id);
+                return view('projetsadmin', compact('projets_info', 'contact_info'))->
+                withErrors(["empty_filename_error" => "Vous devez ajouter une image au projet avant de valider"]);
+            }
+
             if (isset($filename[$i])) {
                 $data['image'] = $filename[$i];
             }
