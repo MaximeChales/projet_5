@@ -24,10 +24,10 @@ Administration - Formations
                   </div>
                   @endif
                <form action="{{ url('admin/formations/') }}" method="POST">   
+               {{csrf_field()}}
                @foreach ($formations_info as $formations)
                <div class="formation_individuelle" >
- 
-                     {{csrf_field()}}
+
                      <input type="hidden" name="id[]" value="{{$formations['id']}}">
                      <label for="formation{{$formations['id']}}">
                      <input type="text" name="formation[]" placeholder="Formation suivie"
