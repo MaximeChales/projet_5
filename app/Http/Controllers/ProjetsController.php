@@ -51,7 +51,8 @@ class ProjetsController extends Controller
                 'titre' => $request->get('titreprojet')[$i],
                 'ordre' => $request->get('ordre')[$i],
             ];
-
+    
+            
             if (isset($filename[$i])) {
                 $data['image'] = $filename[$i];
             }

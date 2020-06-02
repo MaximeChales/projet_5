@@ -25,7 +25,7 @@ Administration Projets
                   </div>
                   @endif
                {{csrf_field()}}
-               
+
                @foreach ($projets_info as $projets)
                <div class='projet' id="projets{{$projets['id']}}">
                   <input type="hidden"  name="id[]" value="{{$projets['id']}}">
@@ -60,7 +60,7 @@ Administration Projets
 <script>
    $(".delete").click(function(){
        var id = $(this).data("id");
-       var token = document.querySelector('input[name=_token]').value   
+       var token = document.querySelector('input[name=_token]').value
            $.ajax(
            {
                url: "{{ url('/admin/projets/delete') }}",
@@ -75,12 +75,12 @@ Administration Projets
                {
                    alert("Suppression réussie");
                    document.location.reload(true);
-   
-               }  
-   
+
+               }
+
            });
        });
-       
+
 </script>
 <script>
    var add_url = "{{ url('admin/projets') }}";

@@ -77,6 +77,7 @@ class UserController extends Controller
             'linkrs.*' =>'required',
             'altci.*' =>'required',
         ]);
+
         User::updateOrCreate(['id' => $auth->id], $data);
 
         //   gestion reseaux sociaux
@@ -97,8 +98,20 @@ class UserController extends Controller
                 'description_rs' => $request->get('altrs')[$i],
 
             ];
-            //Si $filename_rs existe déja, alors en en fait la valeur par defaut de $data logo_rs
 
+            /*On verifie que les images des reseaux sociaux sont biens remplis, auquel cas on retourne la vue useradmin 
+            avec une erreur*/
+            if(!isset($filename_rs[$i]) && empty($request->get('id')[$i])){
+
+                $auth = auth()->user();
+                $user_info = $user->getInfo($auth->id);
+                $contact_info = $contact->getInfo($auth->id);
+                $centres_interets_info = $centres_interets->getInfo($auth->id);
+                
+                return view('useradmin',compact('user_info', 'contact_info', 'centres_interets_info')->withErrors(["empty_filename_error"=>"Vous devez ajouter une image avant de valider"]));
+            }
+
+            //Si $filename_rs existe déja, alors en en fait la valeur par defaut de $data logo_rs
             if (isset($filename_rs[$i])) {
                 $data['logo_rs'] = $filename_rs[$i];
             }

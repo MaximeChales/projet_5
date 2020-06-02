@@ -25,10 +25,10 @@ Administration - Experiences
 
             <form action="{{asset('admin/experiences')}}" method="POST">
             @foreach ($experiences_info as $experiences)
-
-            
+             {{csrf_field()}}
+             
             <div class="experiences_individuelle" id="experience{{$experiences['id']}}">
-                  {{csrf_field()}}
+                 
                   <div class='experiences'>
                      <input type="hidden"  name="id[]" value="{{$experiences['id']}}">
                      <br>
