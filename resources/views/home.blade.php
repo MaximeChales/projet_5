@@ -86,7 +86,7 @@
          <div class="experience">
             <h3>{{$experiences['titre']}}</h3>
             <h4>{{$experiences['ville']}} - {{$experiences['societe']}}</h4>
-            De {{ date('m Y', strtotime($experiences['debut'])) }} à {{ date('m Y', strtotime($experiences['fin'])) }}
+            Du {{ date('m Y', strtotime($experiences['debut'])) }} au {{ date('m Y', strtotime($experiences['fin'])) }}
             <div class="li">
                {!!$experiences['descriptif']!!}
             </div>
@@ -101,7 +101,7 @@
          @foreach ($formations_info as $formations)
          <div class="formation">
             <h3>{{$formations['titre']}}&nbsp;-&nbsp;{{$formations['societe']}}</h3>
-            De {{ date('m Y', strtotime($formations['debut'])) }} à {{ date('m Y', strtotime($formations['fin'])) }}
+            Du {{ date('m Y', strtotime($formations['debut'])) }} au {{ date('m Y', strtotime($formations['fin'])) }}
             <div class="li">
                {!!$formations['descriptif']!!}
             </div>

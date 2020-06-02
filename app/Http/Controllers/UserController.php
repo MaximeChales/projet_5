@@ -73,9 +73,9 @@ class UserController extends Controller
             'accroche' => 'required',
             'email' => 'required|email',
             'permis' => 'required',
-            'altrs.*' =>'required',
-            'linkrs.*' =>'required',
-            'altci.*' =>'required',
+            'altrs.*' => 'required',
+            'linkrs.*' => 'required',
+            'altci.*' => 'required',
         ]);
 
         User::updateOrCreate(['id' => $auth->id], $data);
@@ -99,16 +99,17 @@ class UserController extends Controller
 
             ];
 
-            /*On verifie que les images des reseaux sociaux sont biens remplis, auquel cas on retourne la vue useradmin 
+            /*On verifie que les images des reseaux sociaux sont biens remplis, auquel cas on retourne la vue useradmin
             avec une erreur*/
-            if(!isset($filename_rs[$i]) && empty($request->get('id')[$i])){
+            if (!isset($filename_rs[$i]) && empty($request->get('id')[$i])) {
 
                 $auth = auth()->user();
                 $user_info = $user->getInfo($auth->id);
                 $contact_info = $contact->getInfo($auth->id);
                 $centres_interets_info = $centres_interets->getInfo($auth->id);
-                
-                return view('useradmin',compact('user_info', 'contact_info', 'centres_interets_info')->withErrors(["empty_filename_error"=>"Vous devez ajouter une image avant de valider"]));
+
+                return view('useradmin', compact('user_info', 'contact_info', 'centres_interets_info')->
+                        withErrors(["empty_filename_error" => "Vous devez ajouter une image avant de valider"]));
             }
 
             //Si $filename_rs existe déja, alors en en fait la valeur par defaut de $data logo_rs
