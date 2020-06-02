@@ -14,7 +14,7 @@
       <a href="#formations" id="formation">Formations</a>
    </nav>
 </div>
-<div class="remonter"><a href="#mb"><img src="../public/img/fleche.png" alt="remonter"></a></div>
+<div class="remonter"><a href="#mb"><img src="{{asset('img/fleche.png')}}" alt="remonter"></a></div>
 <section class="section" id="coordonnees">
    <div class="wrap">
       <div class="entete">

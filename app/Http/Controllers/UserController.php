@@ -73,11 +73,8 @@ class UserController extends Controller
             'accroche' => 'required',
             'email' => 'required|email',
             'permis' => 'required',
-            'altrs' =>'required|array',
             'altrs.*' =>'required',
-            'linkrs' =>'required|array',
             'linkrs.*' =>'required',
-            'altci' =>'required|array',
             'altci.*' =>'required',
         ]);
         User::updateOrCreate(['id' => $auth->id], $data);
