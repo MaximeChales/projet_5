@@ -32,7 +32,7 @@ Administration Projets
                   <img src="{{asset('img/'.$projets['image'])}}" alt="{{$projets['titre']}}" class="projetsadmin">
                   <br>
                   <label for="slide{{$projets['id']}}">
-                  <input type="file" id="slide{{$projets['id']}}" name="slide[]" accept="image/png, image/jpeg">
+                  <input type="file" id="slide{{$projets['id']}}" name="slide[]">
                   </label>
                   <label for="linkprojets{{$projets['id']}}">
                   <input type="text" id="linkprojets{{$projets['id']}}" name ="linkprojets[]" placeholder="Lien du projet" value="{{$projets['url']}}">
