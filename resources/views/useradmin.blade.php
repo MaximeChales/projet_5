@@ -30,7 +30,7 @@
                         <br>
                         <label for="photo">
                         <img src="{{asset('img/'.$user_info['photo_profil'])}}" alt="photo" class="photo photoadmin">
-                        <input type="file"  name="photo_profil" id="photo" accept="image/png, image/jpeg">
+                        <input type="file"  name="photo_profil" id="photo" >
                         </label>
                         <br>
                      </div>
@@ -89,7 +89,7 @@
                                  <img src="{{asset('img/'.$centres_interets['logo_ci'])}}" alt="{{$centres_interets['description_ci']}}" class="logosadmin">
                                  <br>
                                  <label for="logo_ci{{$centres_interets['id']}}">
-                                 <input type="file"  name="logo_ci[]" accept="image/png, image/jpeg" id="logo_ci{{$centres_interets['id']}}">
+                                 <input type="file"  name="logo_ci[]" id="logo_ci{{$centres_interets['id']}}">
                                  </label>
                                  <label for="altci{{$centres_interets['id']}}">
                                  <input type="text" name="altci[]" placeholder="Descriptif"
@@ -113,7 +113,7 @@
                               <br>
                               <img src="{{asset('img/'.$contact['logo_rs'])}}" alt="{{$contact['description_rs']}}" class="logosadmin">
                               <br>
-                              <input type="file"  name="logors[]" accept="image/png, image/jpeg" id="logo_rs{{$contact['id']}}">
+                              <input type="file"  name="logors[]" id="logo_rs{{$contact['id']}}">
                               </label>
                               <label for="linkrs{{$contact['id']}}">
                               <input type="text" placeholder="lien réseau social" name="linkrs[]"  value="{{$contact['url']}}" id="linkrs{{$contact['id']}}">
