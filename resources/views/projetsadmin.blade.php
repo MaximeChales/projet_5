@@ -3,7 +3,6 @@
 Administration Projets
 @endsection
 @section('content')
-<script src="https://cdn.tiny.cloud/1/opu4jj54o6rpalgywhl7rjize163cy8mmxh4eumwbsph8lt7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <section>
    <div class="administrationbandeau">
       <h1 class="textheaderadmin"> Administration</h1>

@@ -59,7 +59,7 @@ class UserController extends Controller
             $data['photo_profil'] = $filename;
         }
 
-        //On verifie que les inouts sont bien remplis et on ajoute d'autres conditions pour certains (email, int uniquement)
+        //On verifie que les inputs sont bien remplis et on ajoute d'autres conditions pour certains (email, int uniquement)
 
         $this->validate($request, [
             'nom' => 'required',

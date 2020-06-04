@@ -8,11 +8,11 @@ window.onload = function () {
     var href;
     for(var i=0; i<links.length; i++)
     {  
-        //On verifie si le lien est un vrai lien ou une ancre en fonction de la longueur de son href
+        //On verifie que href existe, qu'il possède une valeur d'au moins 1 caractere et qu'il commence par un '#'
         href = (links[i].attributes.href === undefined) ? null : links[i].attributes.href.nodeValue.toString();
         if(href !== null && href.length > 1 && href.substr(0, 1) == '#')
         {
-            //Si c'est une ancre, on appelle (active la fonction)
+            //Mise en place d'un evenement (clique)
             links[i].onclick = function()
             {
                 //On identifie l'id de l'ancre
